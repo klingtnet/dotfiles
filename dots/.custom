@@ -1,0 +1,13 @@
+# user specific settings and things
+
+if [ ! -d $HOME/bin ]; then
+    echo "Creating $HOME/bin ..."
+    mkdir $HOME/bin
+fi
+
+if [ ! -d ${KN_DEV_PATH} ]; then
+    echo "Creating ${KN_DEV_PATH} ..."
+    mkdir -p ${KN_DEV_PATH}
+fi
+
+# vim: set syntax=sh:
