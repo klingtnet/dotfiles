@@ -6,6 +6,9 @@
 
 """ `:options` and `:h foo` for details
 
+so ~/.vim_vundle
+
+
 """ misc
 set noeb                    " no errorbells
 set vb                      " no sound
@@ -22,9 +25,6 @@ set lcs=tab:\ \ ,trail:·    " list chars
 filetype on                 " enable filetypes
 filetype plugin on          " load plugin for filetype
 filetype indent off         " load filetype specific indent file
-
-" load pathogen https://github.com/tpope/vim-pathogen
-execute pathogen#infect()
 
 """ theme
 """ http://vimcolors.com/
