@@ -33,7 +33,7 @@ set t_Co=256
 set bg=dark
 " dark: lucius, gruvbox, flatcolor, mopkai, desertEx, flatui, radicalgoodspeed
 " light: github, beauty256, gravity
-colorscheme desertEx
+colorscheme PaperColor
 syntax on                   " switch syntax highlighting on
 
 """ indentation
