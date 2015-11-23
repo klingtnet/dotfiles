@@ -12,9 +12,11 @@ RUN apk update &&\
 
 RUN adduser -D -s zsh dots
 
+COPY dots /home/dots
+RUN chown -R dots:dots /home/dots
+
 USER dots
 
-COPY dots /home/dots
 
 WORKDIR /home/dots
 
