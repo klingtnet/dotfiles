@@ -17,6 +17,8 @@ RUN chown -R dots:dots /home/dots
 
 USER dots
 
+# install vim plugins
+RUN vim -u ~/.vim_vundle +PluginInstall +qall &> /dev/null
 
 WORKDIR /home/dots
 
