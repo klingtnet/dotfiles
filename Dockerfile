@@ -6,6 +6,7 @@ RUN apk update &&\
     apk add bash\
             zsh\
             ncurses\
+            ncurses-terminfo\
             vim\
             git
 
