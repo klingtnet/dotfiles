@@ -2,13 +2,13 @@ source .envs
 source .aliases
 source .paths
 
-### history
 SAVEHIST=-1
 HISTFILE=~/.zsh_history
+
 #setopt appendhistory    # append instead of overwrite
 setopt sharehistory     # share history between terminals
 
-### options
+# zsh options
 # - names are case insensitive and underscores are ignored
 # - `unsetopt foo` is equivalent to `setopt nofoo`
 setopt autolist         # list tab completion candidates
