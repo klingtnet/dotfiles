@@ -11,10 +11,6 @@ source .paths
 
 HISTFILESIZE=-1
 
-if [ -d "$HOME/.rvm" ]; then
-    export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-fi
-
 # uncomment to enbale vi-keybindings
 #set -o vi
 
