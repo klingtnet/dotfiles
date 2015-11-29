@@ -58,7 +58,6 @@ kn_prompt() {
     if [ $STATUS -ne 0 ]; then
         PROMPT+=" %B%1F$?%0f%b"
     fi
-    PROMPT+=" in"
     # \w full path
     PROMPT+=" %0F%3~%0f"
     [[ -n $vcs_info_msg_0_ ]] && PROMPT+=" ($vcs_info_msg_0_)"
