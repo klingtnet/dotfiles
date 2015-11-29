@@ -21,19 +21,6 @@ setopt checkjobs        # display warning on exit if there are running jobs
 setopt rmstarwait       # wait 10 seconds before executing rm *
 unsetopt beep           # who the heck needs beeps anyway?
 
-### TERM
-# manually set TERM to get a 256 terminal
-# despite some misleading warnings this is no problem: https://bbs.archlinux.org/viewtopic.php?id=178309
-local TERMPATH=/lib/terminfo
-if [ -e /lib/terminfo/x/xterm-256color ]; then
-    export TERM='xterm-256color'
-else
-    export TERM='xterm-color'
-fi
-if [ $(tput colors) -ne 256 ]; then
-    echo "Couldn't set to 256 color terminal: $TERM!"
-fi
-
 # append function search path so promptinit is able to find my theme
 [[ -d ~/.zsh/functions ]] && fpath=(~/.zsh/functions $fpath)
 
