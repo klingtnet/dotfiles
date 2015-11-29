@@ -1,5 +1,6 @@
 source .envs
 source .aliases
+source .paths
 
 ### history
 SAVEHIST=-1

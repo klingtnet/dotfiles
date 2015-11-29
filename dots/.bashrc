@@ -7,6 +7,7 @@
 
 source .envs
 source .aliases
+source .paths
 
 HISTFILESIZE=-1
 
