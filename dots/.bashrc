@@ -11,15 +11,12 @@ source .paths
 
 HISTFILESIZE=-1
 
-PS1='[\u@\h \W]\$ '
-
 if [ -d "$HOME/.rvm" ]; then
     export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 fi
 
 # uncomment to enbale vi-keybindings
 #set -o vi
-export PS1="\u@\h-\t} \w \n\$? \\$ \[$(tput sgr0)\]"
 
 # http://bashrcgenerator.com/
 prompt_cmd() {
