@@ -1,0 +1,41 @@
+[alias]
+    a       = add
+    aa      = add --all
+    c       = commit
+    cr      = clone --recursive
+    co      = checkout
+    lgf     = log --graph --abbrev-commit --decorate=full --pretty=medium
+    lg      = log --graph --abbrev-commit --decorate --pretty=oneline
+    l       = log --abbrev-commit --decorate --pretty=oneline
+    s       = status
+    f       = fetch
+    p       = push
+    d       = diff
+    tags    = tag -l
+
+[core]
+    editor          = vim
+    pager           = less
+    excludesfile    = ~/.gitignore_global
+
+[color]
+    diff    = auto
+    status  = auto
+    branch  = auto
+    ui      = auto
+
+[diff]
+    tool = meld
+
+[merge]
+    tool = meld
+
+[user]
+	name = Andreas Linz
+	email = klingt.net@gmail.com
+
+[push]
+    default = simple
+
+[pull]
+    ff = only
