@@ -2,7 +2,7 @@ source .envs
 source .aliases
 source .paths
 
-SAVEHIST=-1
+SAVEHIST=$HISTSIZE
 HISTFILE=~/.zsh_history
 
 #setopt appendhistory    # append instead of overwrite
