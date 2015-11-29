@@ -34,7 +34,7 @@ prompt_cmd() {
     PROMPT+=" in"
     # \w full path
     PS1+=" \[\e[35m\]\W\[\e[0m\]"
-    PS1+=" "
+    PS1+=": "
 }
 
 export -f prompt_cmd
