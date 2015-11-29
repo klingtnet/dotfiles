@@ -21,6 +21,12 @@ setopt checkjobs        # display warning on exit if there are running jobs
 setopt rmstarwait       # wait 10 seconds before executing rm *
 unsetopt beep           # who the heck needs beeps anyway?
 
+# keybindings
+bindkey -v
+bindkey "^R"    history-incremental-search-backward
+bindkey "^E"    end-of-line
+bindkey "^A"    beginning-of-line
+
 # append function search path so promptinit is able to find my theme
 [[ -d ~/.zsh/functions ]] && fpath=(~/.zsh/functions $fpath)
 
