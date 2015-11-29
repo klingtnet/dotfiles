@@ -43,15 +43,35 @@ autoload -U compinit promptinit colors zcalc &&\
     promptinit &&\
     colors
 
+kn_prompt() {
+    STATUS=$?
+    PROMPT=""
+    if [ $SHLVL -ne 0 ]; then
+        PROMPT+="%6Fsub %0f"
+    fi
+    if [ $EUID -eq 0 ]; then
+        PROMPT+="%1F%n%0f"
+    else
+        PROMPT+="%2F%n%0f"
+    fi
+    PROMPT+=@
+    PROMPT+='%3F%M%0f'
+    if [ $STATUS -ne 0 ]; then
+        PROMPT+=" %1F$?%0f"
+    fi
+    PROMPT+=" in"
+    # \w full path
+    PROMPT+=" %5F%2d%0f "
+}
+
+precmd() {
+    kn_prompt;
+}
+
 # append ~/bin to path
 [[ -f ~/.paths ]] && . ~/.paths
 [[ -f ~/.sh_functions ]] && . ~/.sh_functions
 
 # load theme
-if [ ! -z "$(prompt -l | grep klingtnet)" ]; then
-    prompt klingtnet
-else
-    echo "Could not find \"klingtnet\" shell prompt theme!"
-fi
 
 # vim: set syntax=sh:
