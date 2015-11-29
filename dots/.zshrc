@@ -68,10 +68,4 @@ precmd() {
     kn_prompt;
 }
 
-# append ~/bin to path
-[[ -f ~/.paths ]] && . ~/.paths
-[[ -f ~/.sh_functions ]] && . ~/.sh_functions
-
-# load theme
-
 # vim: set syntax=sh:
