@@ -2,4 +2,6 @@ alias ls='ls --color=auto'
 alias ll='ls -al'
 alias cddev="cd ${KN_DEV_PATH}"
 
+[[ ! -z $( grep 'Arch Linux' /etc/issue ) ]] && source .arch_aliases
+
 # vim: set syntax=sh:
