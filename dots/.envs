@@ -1,5 +1,9 @@
 # envrionment variables
 
+export EDITOR="vim"
+export PAGER="less"
+export HISTSIZE=131072
+
 export KN_FULLNAME='Andreas Linz'
 export KN_USEREMAIL='klingt.net@gmail.com'
 export KN_DEV_PATH="$HOME/personal/dev"

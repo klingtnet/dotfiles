@@ -12,7 +12,6 @@ if [ -f "$HOME/.custom" ]; then
     source $HOME/.custom
 fi
 
-HISTSIZE=16384
 HISTFILESIZE=-1
 
 PS1='[\u@\h \W]\$ '

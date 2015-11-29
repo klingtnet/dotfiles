@@ -6,7 +6,6 @@ if [ -f "$HOME/.custom" ]; then
 fi
 
 ### history
-HISTSIZE=16384 # has to be at least as large as SAVEHIST
 SAVEHIST=-1
 HISTFILE=~/.zsh_history
 #setopt appendhistory    # append instead of overwrite
@@ -24,9 +23,6 @@ setopt clobber          # allow file truncation and appending with >, respective
 setopt checkjobs        # display warning on exit if there are running jobs
 setopt rmstarwait       # wait 10 seconds before executing rm *
 unsetopt beep           # who the heck needs beeps anyway?
-
-export EDITOR="vim"
-export PAGER="less"
 
 ### TERM
 # manually set TERM to get a 256 terminal
