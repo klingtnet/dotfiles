@@ -38,12 +38,10 @@ fi
 [[ -d ~/.zsh/functions ]] && fpath=(~/.zsh/functions $fpath)
 
 ### load modules
-autoload -U compinit promptinit colors zcalc
-if [ $? -eq 0 ]; then
-    compinit
-    promptinit
+autoload -U compinit promptinit colors zcalc &&\
+    compinit &&\
+    promptinit &&\
     colors
-fi
 
 # append ~/bin to path
 [[ -f ~/.paths ]] && . ~/.paths
