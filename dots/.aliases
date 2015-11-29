@@ -1,2 +1,4 @@
 alias ll='ls -al'
 alias cddev="cd ${KN_DEV_PATH}"
+
+# vim: set syntax=sh:
