@@ -15,7 +15,6 @@ fi
 HISTSIZE=16384
 HISTFILESIZE=-1
 
-alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
 if [ -d "$HOME/.rvm" ]; then
