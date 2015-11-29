@@ -44,7 +44,7 @@ kn_prompt() {
     PROMPT+=@
     PROMPT+='%3F%M%0f'
     if [ $STATUS -ne 0 ]; then
-        PROMPT+=" %1F$?%0f"
+        PROMPT+=" %B%1F$?%0f%b"
     fi
     PROMPT+=" in"
     # \w full path
