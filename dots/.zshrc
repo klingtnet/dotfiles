@@ -54,7 +54,7 @@ kn_prompt() {
     fi
     PROMPT+=" in"
     # \w full path
-    PROMPT+=" %5F%3~%0f"
+    PROMPT+=" %0F%3~%0f"
     [[ -n $vcs_info_msg_0_ ]] && PROMPT+=" ($vcs_info_msg_0_)"
     PROMPT+=": "
 }
