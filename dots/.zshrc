@@ -25,10 +25,12 @@ unsetopt beep           # who the heck needs beeps anyway?
 [[ -d ~/.zsh/functions ]] && fpath=(~/.zsh/functions $fpath)
 
 ### load modules
-autoload -U compinit promptinit colors zcalc &&\
+autoload -U compinit promptinit colors zcalc vcs_info &&\
     compinit &&\
     promptinit &&\
-    colors
+    colors &&\
+    vcs_info
+
 
 kn_prompt() {
     STATUS=$?
@@ -52,7 +54,8 @@ kn_prompt() {
 }
 
 precmd() {
-    kn_prompt;
+    vcs_info;
+    kn_prompt
 }
 
 # vim: set syntax=sh:
