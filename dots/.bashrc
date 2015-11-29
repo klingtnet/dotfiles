@@ -8,10 +8,6 @@
 source .envs
 source .aliases
 
-if [ -f "$HOME/.custom" ]; then
-    source $HOME/.custom
-fi
-
 HISTFILESIZE=-1
 
 PS1='[\u@\h \W]\$ '

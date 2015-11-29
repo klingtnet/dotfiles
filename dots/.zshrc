@@ -1,10 +1,6 @@
 source .envs
 source .aliases
 
-if [ -f "$HOME/.custom" ]; then
-    source $HOME/.custom
-fi
-
 ### history
 SAVEHIST=-1
 HISTFILE=~/.zsh_history
