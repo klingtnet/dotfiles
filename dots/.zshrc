@@ -46,10 +46,10 @@ kn_prompt() {
     STATUS=$?
     PROMPT=""
     if [ -n "$(jobs)" ]; then
-        PS1+="J%6F%j%0f "
+        PS1+="j%6F%j%0f "
     fi
     if [ $SHLVL -ne 0 ]; then
-        PROMPT+="S%6F${SHLVL}%0f "
+        PROMPT+="s%6F${SHLVL}%0f "
     fi
     if [ $EUID -eq 0 ]; then
         PROMPT+="%1F%n%0f"

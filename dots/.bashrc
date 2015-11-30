@@ -19,10 +19,10 @@ prompt_cmd() {
     STATUS=$?
     PS1=""
     if [ -n "$(jobs)" ]; then
-        PS1+="J\\[\e[34m\]\j\[\e[0m\] "
+        PS1+="j\\[\e[34m\]\j\[\e[0m\] "
     fi
     if [ $SHLVL -ne 0 ]; then
-        PS1+="S\[\e[34m\]${SHLVL}\[\e[0m\] "
+        PS1+="s\[\e[34m\]${SHLVL}\[\e[0m\] "
     fi
     if [ $EUID -eq 0 ]; then
         PS1+="\[\e[31m\]\u\[\e[0m\]"
