@@ -7,6 +7,7 @@
 - return code if non zero
 - root username is red
 - git branch (zsh only)
+- works with light and dark shell color themes
 
 ## Try
 
