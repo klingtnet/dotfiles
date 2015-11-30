@@ -22,7 +22,7 @@ prompt_cmd() {
         PS1+="J\\[\e[34m\]\j\[\e[0m\] "
     fi
     if [ $SHLVL -ne 0 ]; then
-        PS1+="\[\e[34m\]sub \[\e[0m\]"
+        PS1+="S\[\e[34m\]${SHLVL}\[\e[0m\] "
     fi
     if [ $EUID -eq 0 ]; then
         PS1+="\[\e[31m\]\u\[\e[0m\]"

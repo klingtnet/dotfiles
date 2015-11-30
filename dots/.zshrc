@@ -49,7 +49,7 @@ kn_prompt() {
         PS1+="J%6F%j%0f "
     fi
     if [ $SHLVL -ne 0 ]; then
-        PROMPT+="%6Fsub %0f"
+        PROMPT+="S%6F${SHLVL}%0f "
     fi
     if [ $EUID -eq 0 ]; then
         PROMPT+="%1F%n%0f"
