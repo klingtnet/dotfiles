@@ -1,5 +1,4 @@
-if [ -d "$HOME/.rvm" ]; then
-    export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-fi
+[[ -d "$HOME/.rvm" ]] && export PATH="$HOME/.rvm/bin:$PATH"
+[[ -d "$HOME/bin" ]] && export PATH="$HOME/bin:$PATH"
 
 # vim: set syntax=sh:
