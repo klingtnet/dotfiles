@@ -31,6 +31,8 @@ $ make try
 
 ## Install
 
+**WARNING** The installation will overwrite your original *dots* without confirmation!
+
 ```sh
 $ make install
 ```
