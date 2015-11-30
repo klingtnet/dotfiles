@@ -7,7 +7,7 @@ all: build
 build: Dockerfile
 	docker build -t ${NAME} .
 
-run: build
+try: build
 	docker run --rm -it ${NAME}
 
 install:

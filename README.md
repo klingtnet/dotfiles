@@ -21,7 +21,7 @@ I'm also using defaults wherever possible, so customization is really easy.
 ## Try
 
 ```sh
-$ make run
+$ make try
 ```
 
 - requires docker
