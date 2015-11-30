@@ -22,7 +22,7 @@ prompt_cmd() {
     if [ -n "$(jobs)" ]; then
         PS1+="j\\[\e[34m\]\j\[\e[0m\] "
     fi
-    if [ $SHLVL -ge 1 ]; then
+    if [ $SHLVL -gt 1 ]; then
         PS1+="s\[\e[34m\]${SHLVL}\[\e[0m\] "
     fi
     if [ $EUID -eq 0 ]; then
