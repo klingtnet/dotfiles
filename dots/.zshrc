@@ -45,6 +45,9 @@ zstyle ':vcs_info:*' formats "%c%u%4F%b%f"
 kn_prompt() {
     STATUS=$?
     PROMPT=""
+    if [ -n "$(jobs)" ]; then
+        PS1+="J%6F%j%0f "
+    fi
     if [ $SHLVL -ne 0 ]; then
         PROMPT+="%6Fsub %0f"
     fi

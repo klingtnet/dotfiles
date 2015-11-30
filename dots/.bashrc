@@ -18,6 +18,9 @@ HISTFILESIZE=-1
 prompt_cmd() {
     STATUS=$?
     PS1=""
+    if [ -n "$(jobs)" ]; then
+        PS1+="J\\[\e[34m\]\j\[\e[0m\] "
+    fi
     if [ $SHLVL -ne 0 ]; then
         PS1+="\[\e[34m\]sub \[\e[0m\]"
     fi
