@@ -1,5 +1,9 @@
 # klingt.net's dotfiles
 
+![vim](vim.png)
+![terminal-dark](terminal-dark.png)
+![terminal-light](terminal-light.png)
+
 ## Prompt Features
 
 - subshell level if > 0
