@@ -1,5 +1,10 @@
 # klingt.net's dotfiles
 
+The latest edition of my dotfiles.
+This time I tried to make the prompt as minimal as possible without omitting relevant informations.
+Both prompts, bash and zsh are looking identical, except that there is no version control prompt for bash.
+I'm also using defaults wherever possible, so customization is really easy.
+
 ![vim with papercolor theme](vim.png)
 ![terminal with solarized-dark theme](terminal-dark.png)
 ![terminal with solarized-light theme](terminal-light.png)
