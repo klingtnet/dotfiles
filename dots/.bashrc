@@ -8,6 +8,7 @@
 source .envs
 source .aliases
 source .paths
+[[ -f ".$USER" ]] && source ".$USER"
 
 HISTFILESIZE=-1
 

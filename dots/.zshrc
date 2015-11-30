@@ -1,6 +1,7 @@
 source .envs
 source .aliases
 source .paths
+[[ -f ".$USER" ]] && source ".$USER"
 
 SAVEHIST=$HISTSIZE
 HISTFILE=~/.zsh_history
