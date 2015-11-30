@@ -1,8 +1,8 @@
 # klingt.net's dotfiles
 
-![vim](vim.png)
-![terminal-dark](terminal-dark.png)
-![terminal-light](terminal-light.png)
+![vim with papercolor theme](vim.png)
+![terminal with solarized-dark theme](terminal-dark.png)
+![terminal with solarized-light theme](terminal-light.png)
 
 ## Prompt Features
 
