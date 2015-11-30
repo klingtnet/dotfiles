@@ -48,7 +48,7 @@ kn_prompt() {
     if [ -n "$(jobs)" ]; then
         PS1+="j%6F%j%0f "
     fi
-    if [ $SHLVL -ne 0 ]; then
+    if [ $SHLVL -ge 1 ]; then
         PROMPT+="s%6F${SHLVL}%0f "
     fi
     if [ $EUID -eq 0 ]; then
