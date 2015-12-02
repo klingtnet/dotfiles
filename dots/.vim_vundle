@@ -13,6 +13,16 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 " papercolor theme
 Plugin 'NLKNguyen/papercolor-theme'
+" NerdTREE file explorer
+Plugin 'scrooloose/nerdtree'
+" Syntastic syntax checker
+Plugin 'scrooloose/syntastic'
+" ag.vim use `ag` instead of `ack`
+Plugin 'rking/ag.vim'
+" Ctrl+P vim (sublime text like fuzzy search)
+Plugin 'ctrlpvim/ctrlp.vim'
+" vim.sensible a set of sane defaults
+Plugin 'tpope/vim-sensible'
 
 call vundle#end()
 filetype plugin indent on
