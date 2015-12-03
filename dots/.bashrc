@@ -5,10 +5,10 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-source .envs
-source .aliases
-source .paths
-[[ -f ".$USER" ]] && source ".$USER"
+source $HOME/.envs
+source $HOME/.aliases
+source $HOME/.paths
+[[ -f ".$USER" ]] && source "$HOME/.$USER"
 
 HISTFILESIZE=-1
 
