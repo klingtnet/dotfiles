@@ -44,7 +44,6 @@ zstyle ':vcs_info:*' unstagedstr '%3F-%f '
 zstyle ':vcs_info:*' formats "%c%u%4F%b%f"
 
 kn_prompt() {
-    STATUS=$?
     PROMPT=""
     if [ -n "$(jobs)" ]; then
         PS1+="j%6F%j%0f "
@@ -59,8 +58,8 @@ kn_prompt() {
     fi
     PROMPT+=@
     PROMPT+='%3F%M%0f'
-    if [ $STATUS -ne 0 ]; then
-        PROMPT+=" %B%1F$?%0f%b"
+    if [ $1 -gt 0 ]; then
+        PROMPT+=" %B%1F${1}%0f%b"
     fi
     # \w full path
     PROMPT+=" %3~"
@@ -69,8 +68,9 @@ kn_prompt() {
 }
 
 precmd() {
-    vcs_info;
-    kn_prompt
+    local STATUS=$?
+    vcs_info
+    kn_prompt $STATUS
 }
 
 # vim: set syntax=sh:
