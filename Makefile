@@ -11,8 +11,8 @@ build: Dockerfile
 try: build
 	docker run --rm -it ${NAME}
 
+# http://www.cyberciti.biz/faq/bash-considered-harmful-to-match-dot-files-why/
 install:
-	# http://www.cyberciti.biz/faq/bash-considered-harmful-to-match-dot-files-why/
 	cp -r dots/.[^.]* ~
 	vim -u ~/.vim_vundle +PluginInstall +qall
 
