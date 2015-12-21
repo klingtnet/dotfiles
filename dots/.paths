@@ -1,4 +1,10 @@
-[[ -d "$HOME/.rvm" ]] && export PATH="$HOME/.rvm/bin:$PATH"
-[[ -d "$HOME/bin" ]] && export PATH="$HOME/bin:$PATH"
-
+# see item #7 in http://chneukirchen.org/blog/archive/2015/02/10-fancy-zsh-tricks-you-may-not-know.html
+# for a more sophisticaed but non-portable zsh version
+paths=(
+    ~/bin
+    ~/.go/bin
+)
+for p in ${paths[@]}; do
+    [[ -d "$p" ]] && PATH="$p:$PATH"
+done
 # vim: set syntax=sh:
