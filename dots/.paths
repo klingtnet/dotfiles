@@ -3,6 +3,7 @@
 paths=(
     ~/bin
     ~/.go/bin
+    ~/.cargo/bin
 )
 for p in ${paths[@]}; do
     [[ -d "$p" ]] && PATH="$p:$PATH"
