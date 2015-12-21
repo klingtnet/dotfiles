@@ -1,6 +1,7 @@
 .PHONY: build run
 
 NAME='dotfiles'
+SHELL:=$(shell which bash)
 
 all: build
 
