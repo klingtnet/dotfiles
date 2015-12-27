@@ -23,6 +23,8 @@ Plugin 'rking/ag.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 " vim.sensible a set of sane defaults
 Plugin 'tpope/vim-sensible'
+" rust.vim
+Plugin 'rust-lang/rust.vim'
 
 call vundle#end()
 filetype plugin indent on
