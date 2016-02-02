@@ -10,4 +10,8 @@ if [ ! -d ${KN_DEV_PATH} ]; then
     mkdir -p ${KN_DEV_PATH}
 fi
 
+if [ -d "$HOME/.node_modules" ]; then
+    export npm_config_prefix="$HOME/.node_modules"
+fi
+
 # vim: set syntax=sh:

@@ -6,6 +6,7 @@ paths=(
     ~/.cargo/bin
     ~/.multirust/toolchains/stable/cargo/bin
     ~/.pyenv/bin
+    ~/.node_modules/bin
 )
 for p in ${paths[@]}; do
     [[ -d "$p" ]] && PATH="$p:$PATH"
