@@ -13,7 +13,7 @@ try: build
 
 # http://www.cyberciti.biz/faq/bash-considered-harmful-to-match-dot-files-why/
 install:
-	cp -r dots/.[^.]* ~
+	cp --verbose -r dots/.[^.]* ~
 	vim -u ~/.vim_vundle +PluginInstall +qall
 
 update:
