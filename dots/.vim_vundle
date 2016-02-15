@@ -25,6 +25,8 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-sensible'
 " rust.vim
 Plugin 'rust-lang/rust.vim'
+" TOML highlighting
+Bundle 'cespare/vim-toml'
 
 call vundle#end()
 filetype plugin indent on
