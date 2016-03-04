@@ -27,6 +27,8 @@ Plugin 'tpope/vim-sensible'
 Plugin 'rust-lang/rust.vim'
 " TOML highlighting
 Bundle 'cespare/vim-toml'
+" vim-go
+Plugin 'fatih/vim-go'
 
 call vundle#end()
 filetype plugin indent on
