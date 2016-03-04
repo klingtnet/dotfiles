@@ -1,5 +1,5 @@
 alias ls='ls --color=auto --group-directories-first'
-alias ll='ls -l --almost-all'
+alias ll='ls -l --human-readable --almost-all'
 alias py='/usr/bin/env python'
 
 [[ ! -z $( grep 'Arch Linux' /etc/issue ) ]] && source "$HOME/.arch_aliases"
