@@ -8,10 +8,8 @@ export KN_FULLNAME='Andreas Linz'
 export KN_USEREMAIL='klingt.net@gmail.com'
 export KN_DEV_PATH="$HOME/personal/dev"
 
-hash git
-if [ $? -eq 0 ]; then
-    git config --global user.name "$KN_FULLNAME"
+hash git &&
+    git config --global user.name "$KN_FULLNAME" &&
     git config --global user.email "$KN_USEREMAIL"
-fi
 
 # vim: set syntax=sh:
