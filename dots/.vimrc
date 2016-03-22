@@ -28,7 +28,9 @@ filetype indent off         " load filetype specific indent file
 
 """ theme
 """ http://vimcolors.com/
-set term=xterm-256color
+if !has('nvim')
+    set term=xterm-256color
+endif
 set t_Co=256
 set bg=dark
 " dark: lucius, gruvbox, flatcolor, mopkai, desertEx, flatui, radicalgoodspeed
