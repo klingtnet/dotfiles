@@ -80,3 +80,8 @@ let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 
 " gvim settings
 set guifont=Hack\ 10
+
+if has('nvim')
+    " remap Esc to exit terminal emulator mode
+    tnoremap <Esc> <C-\><C-n>
+endif
