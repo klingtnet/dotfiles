@@ -32,7 +32,7 @@ if !has('nvim')
     set term=xterm-256color
 endif
 set t_Co=256
-set bg=dark
+set bg=light
 " dark: lucius, gruvbox, flatcolor, mopkai, desertEx, flatui, radicalgoodspeed
 " light: github, beauty256, gravity
 colorscheme PaperColor
