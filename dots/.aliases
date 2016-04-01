@@ -4,7 +4,7 @@ alias py='/usr/bin/env python'
 
 [[ ! -z $( grep 'Arch Linux' /etc/issue ) ]] && source "$HOME/.arch_aliases"
 
-hash exa &&
+hash exa &> /dev/null &&
     alias lx='exa --group-directories-first --long --group --git'
 
 # vim: set syntax=sh:
