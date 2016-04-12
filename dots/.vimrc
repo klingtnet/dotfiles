@@ -77,6 +77,12 @@ autocmd Filetype make set noexpandtab
 " fix slow save in go files, details:
 " https://github.com/fatih/vim-go/issues/144#issuecomment-59598099
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
 
 " gvim settings
 set guifont=Hack\ 10
