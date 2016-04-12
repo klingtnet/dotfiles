@@ -29,7 +29,7 @@ filetype indent off         " load filetype specific indent file
 """ theme
 """ http://vimcolors.com/
 set t_Co=256
-set bg=light
+set bg=dark
 " dark: lucius, gruvbox, flatcolor, mopkai, desertEx, flatui, radicalgoodspeed
 " light: github, beauty256, gravity
 colorscheme lanox
