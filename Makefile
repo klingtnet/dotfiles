@@ -15,6 +15,7 @@ try: build
 install:
 	cp --verbose -r dots/.[^.]* ~
 	vim -u ~/.vim_vundle +PluginInstall +qall
+	./setup_nvim.sh
 
 update:
 	git subtree pull --squash --prefix dots/.vim/bundle/Vundle.vim/ git@github.com:VundleVim/Vundle.vim.git master
