@@ -33,8 +33,10 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'morhetz/gruvbox'
 
+if !has('nvim')
 " use gvim colorschems in vim
 Plugin 'KevinGoodsell/vim-csexact'
+endif
 
 call vundle#end()
 filetype plugin indent on
