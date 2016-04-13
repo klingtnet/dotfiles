@@ -11,8 +11,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " vim git wrapper
 Plugin 'tpope/vim-fugitive'
-" papercolor theme
-Plugin 'NLKNguyen/papercolor-theme'
 " NerdTREE file explorer
 Plugin 'scrooloose/nerdtree'
 " Syntastic syntax checker
@@ -29,6 +27,9 @@ Plugin 'rust-lang/rust.vim'
 Bundle 'cespare/vim-toml'
 " vim-go
 Plugin 'fatih/vim-go'
+
+" colorschemes
+Plugin 'NLKNguyen/papercolor-theme'
 
 call vundle#end()
 filetype plugin indent on
