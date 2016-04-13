@@ -29,7 +29,9 @@ Bundle 'cespare/vim-toml'
 Plugin 'fatih/vim-go'
 
 " colorschemes
+Plugin 'flazz/vim-colorschemes'
 Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'morhetz/gruvbox'
 
 call vundle#end()
 filetype plugin indent on
