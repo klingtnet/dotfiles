@@ -29,10 +29,14 @@ filetype indent off         " load filetype specific indent file
 """ theme
 """ http://vimcolors.com/
 set t_Co=256
-set bg=dark
-" dark: lucius, gruvbox, flatcolor, mopkai, desertEx, flatui, radicalgoodspeed
-" light: github, beauty256, gravity
-colorscheme lanox
+" DARK
+" lucius, gruvbox, flatcolor, mopkai, desertEx, flatui,
+" radicalgoodspeed, lxvc, 256-grayvim, bvemu, campfire, ChasingLogic, miko,
+" molokai, Monokai, sandydune
+" LIGHT
+" github, beauty256, gravity, coda, materialbox, morning, nuvola, osx_like,
+" PaperColor, parsec, pencil, professional, proton
+colorscheme pencil
 syntax on                   " switch syntax highlighting on
 
 """ indentation
