@@ -36,7 +36,7 @@ set t_Co=256
 " LIGHT
 " github, beauty256, gravity, coda, materialbox, morning, nuvola, osx_like,
 " PaperColor, parsec, pencil, professional, proton
-colorscheme pencil
+colorscheme PaperColor
 syntax on                   " switch syntax highlighting on
 
 """ indentation
