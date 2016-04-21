@@ -6,3 +6,5 @@
         ln -s $HOME/.vimrc $HOME/.vim/init.vim
     [ ! -d "$HOME/.config/nvim" ] &&
         ln -s $HOME/.vim $HOME/.config/nvim
+# reset possible error value if nvim wasn't found
+echo $? > /dev/null
