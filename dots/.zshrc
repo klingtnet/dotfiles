@@ -6,8 +6,9 @@ source $HOME/.paths
 SAVEHIST=$HISTSIZE
 HISTFILE=~/.zsh_history
 
-#setopt appendhistory    # append instead of overwrite
-setopt sharehistory     # share history between terminals
+setopt append_history    # append instead of overwrite
+setopt share_history     # share history between terminals
+setopt extended_history  # save commands timestamp
 
 # zsh options
 # - names are case insensitive and underscores are ignored
