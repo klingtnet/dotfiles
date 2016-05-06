@@ -27,6 +27,8 @@ Plugin 'rust-lang/rust.vim'
 Bundle 'cespare/vim-toml'
 " vim-go
 Plugin 'fatih/vim-go'
+" vim-misc (dependency for `vim-session`)
+Plugin 'xolox/vim-misc'
 " vim-session manager
 Plugin 'xolox/vim-session'
 
