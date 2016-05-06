@@ -88,6 +88,8 @@ let g:go_highlight_build_constraints = 1
 
 " gvim settings
 set guifont=Hack\ 10
+" disable annoying cursor blinking
+set guicursor+=a:blinkon0
 
 if has('nvim')
     " remap Esc to exit terminal emulator mode
