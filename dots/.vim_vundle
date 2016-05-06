@@ -27,6 +27,8 @@ Plugin 'rust-lang/rust.vim'
 Bundle 'cespare/vim-toml'
 " vim-go
 Plugin 'fatih/vim-go'
+" vim-session manager
+Plugin 'xolox/vim-session'
 
 " colorschemes
 Plugin 'flazz/vim-colorschemes'
