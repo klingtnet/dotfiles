@@ -86,6 +86,9 @@ let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
+" disable annoying session save dialog
+let g:session_autosave = 'no'
+
 " gvim settings
 set guifont=Hack\ 10
 " disable annoying cursor blinking
