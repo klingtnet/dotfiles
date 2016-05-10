@@ -31,6 +31,8 @@ Plugin 'fatih/vim-go'
 Plugin 'xolox/vim-misc'
 " vim-session manager
 Plugin 'xolox/vim-session'
+" editorconfig
+Plugin 'editorconfig/editorconfig-vim'
 
 " colorschemes
 Plugin 'flazz/vim-colorschemes'
