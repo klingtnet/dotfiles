@@ -88,6 +88,7 @@ let g:go_highlight_build_constraints = 1
 
 " disable annoying session save dialog
 let g:session_autosave = 'no'
+let g:session_autoload = 'no'
 
 " gvim settings
 set guifont=Hack\ 10
