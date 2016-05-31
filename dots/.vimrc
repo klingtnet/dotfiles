@@ -90,6 +90,14 @@ let g:go_highlight_build_constraints = 1
 let g:session_autosave = 'no'
 let g:session_autoload = 'no'
 
+" vim-racer
+" make sure that `racer` is in your PATH
+" and that the rust source is installed.
+" Switchting between different rust sources
+" is currently not supported by rustup.
+let g:racer_cmd = "racer"
+let $RUST_SRC_PATH = "/usr/src/rust/src"
+
 " gvim settings
 set guifont=Hack\ 10
 " disable annoying cursor blinking

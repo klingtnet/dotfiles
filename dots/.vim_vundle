@@ -33,6 +33,8 @@ Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
 " editorconfig
 Plugin 'editorconfig/editorconfig-vim'
+" racer plugin for vim (Rust autocompletion)
+Plugin 'racer-rust/vim-racer'
 
 " colorschemes
 Plugin 'flazz/vim-colorschemes'
