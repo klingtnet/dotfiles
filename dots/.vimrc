@@ -37,7 +37,7 @@ set bg=dark
 " LIGHT
 " github, beauty256, gravity, coda, materialbox, morning, nuvola, osx_like,
 " PaperColor, parsec, pencil, professional, proton
-colorscheme PaperColor
+colorscheme seti
 syntax on                   " switch syntax highlighting on
 
 """ indentation
