@@ -10,6 +10,7 @@ paths=(
     ~/.pyenv/bin
     ~/.node_modules/bin
     ~/.rvm/bin
+    ~/.local/bin
 )
 for p in ${paths[@]}; do
     [[ -d "$p" ]] && PATH="$p:$PATH"
