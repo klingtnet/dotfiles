@@ -1,0 +1,16 @@
+# -*- mode: sh; -*-
+# klingt.net pyenv settings
+#
+# Andreas Linz
+# www.klingt.net
+
+export PYENV_ROOT=~/.pyenv
+export PATH="${PYENV_ROOT}/shims:${PATH}"
+export PYENV_SHELL="$(ps -p $$ -o 'comm=')"
+if [ "$(ps -p $$ -o 'comm=')" = 'zsh' ]; then
+    source "${PYENV_ROOT}/libexec/../completions/pyenv.zsh"
+fi
+command pyenv rehash 2>/dev/null
+
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
