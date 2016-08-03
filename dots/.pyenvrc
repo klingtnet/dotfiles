@@ -6,7 +6,6 @@
 
 export PYENV_ROOT=~/.pyenv
 export PATH="${PYENV_ROOT}/bin:${PATH}"
-export PYENV_SHELL="$(ps -p $$ -o 'comm=')"
 if [ "$(ps -p $$ -o 'comm=')" = 'zsh' ]; then
     source "${PYENV_ROOT}/libexec/../completions/pyenv.zsh"
 fi
