@@ -14,7 +14,7 @@ try: build
 # http://www.cyberciti.biz/faq/bash-considered-harmful-to-match-dot-files-why/
 install:
 	cp --verbose -r dots/.[^.]* ~
-	vim -u ~/.vim_vundle +PluginInstall +qall
+	vim -u ~/.vim_vundle +PluginInstall --cmd "let g:session_autosave='no'" +qall
 	./setup_nvim.sh
 
 update:
