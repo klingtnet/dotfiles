@@ -103,6 +103,11 @@ set guifont=Hack\ 10
 " disable annoying cursor blinking
 set guicursor+=a:blinkon0
 
+" vim-pandoc (syntax only)
+augroup pandoc_syntax
+	au! BufNewFile,BufFilePRe,BufRead *.pandoc set filetype=markdown.pandoc
+augroup END
+
 if has('nvim')
     " remap Esc to exit terminal emulator mode
     tnoremap <Esc> <C-\><C-n>

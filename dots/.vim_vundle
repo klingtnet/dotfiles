@@ -40,6 +40,7 @@ Plugin 'racer-rust/vim-racer'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'morhetz/gruvbox'
+Plugin 'vim-pandoc/vim-pandoc-syntax'
 
 call vundle#end()
 filetype plugin indent on
