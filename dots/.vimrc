@@ -36,8 +36,7 @@ filetype indent off         " load filetype specific indent file
 " github, beauty256, gravity, coda, materialbox, morning, nuvola, osx_like,
 " PaperColor, parsec, pencil, professional, proton
 set t_Co=256
-colorscheme monokai
-set bg=dark
+colorscheme badwolf
 syntax on                   " switch syntax highlighting on
 
 """ indentation
