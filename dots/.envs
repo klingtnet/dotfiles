@@ -12,4 +12,6 @@ hash git &&
     git config --global user.name "$KN_FULLNAME" &&
     git config --global user.email "$KN_USEREMAIL"
 
+[[ -z $(pidof ssh-agent) ]] && eval $(ssh-agent)
+
 # vim: set syntax=sh:
