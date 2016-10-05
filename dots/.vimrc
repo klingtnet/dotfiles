@@ -69,6 +69,12 @@ set stl +=col(%v)           " virtual column number
 set stl +=\ 
 set stl +=%r                " readonly
 
+" change status line color in insert mode
+autocmd InsertEnter * highlight StatusLine ctermbg=red
+autocmd InsertEnter * highlight StatusLine guibg=red
+autocmd InsertLeave * highlight StatusLine ctermbg=lightblue
+autocmd InsertLeave * highlight StatusLine guibg=lightblue
+
 " set highlighting for md files (md are normally modula files)
 autocmd BufNew,BufNewFile,BufRead *.md setlocal ft=markdown
 
