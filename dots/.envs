@@ -12,12 +12,4 @@ hash git &&
     git config --global user.name "$KN_FULLNAME" &&
     git config --global user.email "$KN_USEREMAIL"
 
-# Sometimes the SSH_AUTH_SOCK is missing after resuming from standby
-[[ -n $(pidof ssh-agent) ]] && [[ ! -f "$SSH_AUTH_SOCK" ]]\
-    && pkill ssh-agent
-[[ -z $(pidof ssh-agent) ]]\
-    && ssh-agent > ~/.ssh-agent-config &> /dev/null
-[[ -n $(pidof ssh-agent) && -f ~/.ssh-agent-config ]]\
-    && eval $(< ~/.ssh-agent-config) &> /dev/null
-
 # vim: set syntax=sh:
