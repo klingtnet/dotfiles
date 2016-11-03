@@ -12,17 +12,6 @@
 [[ -d "$HOME/.node_modules" ]]\
 	&& export npm_config_prefix="$HOME/.node_modules"
 
-hash ssh-agent &> /dev/null
-if [ $? -eq 0 ]; then
-# Sometimes the SSH_AUTH_SOCK is missing after resuming from standby
-    [[ -n $(pidof ssh-agent) ]] && [[ ! -e "$SSH_AUTH_SOCK" ]]\
-        && pkill ssh-agent
-    [[ -n $(pidof ssh-agent) ]] && [[ -f ~/.ssh-agent-config ]]\
-        && eval $(< ~/.ssh-agent-config) &> /dev/null
-    [[ -z $(pidof ssh-agent) ]]\
-        && ssh-agent > ~/.ssh-agent-config &> /dev/null
-fi
-
 [[ -d "$HOME/.vst" ]]\
 	&& export VST_PATH=${VST_PATH:-~/.vst}
 # vim: set syntax=sh:
