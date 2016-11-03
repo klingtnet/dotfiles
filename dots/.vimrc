@@ -103,10 +103,12 @@ let g:session_autoload = 'no'
 let g:racer_cmd = "racer"
 let $RUST_SRC_PATH = "/usr/src/rust/src"
 
-" gvim settings
-set guifont=Hack\ 10
-" disable annoying cursor blinking
-set guicursor+=a:blinkon0
+if has('gui_running')
+    " gvim settings
+    set guifont=Fantasque\ Sans\ Mono\ 12
+    " disable annoying cursor blinking
+    set guicursor+=a:blinkon0
+endif
 
 " vim-pandoc (syntax only)
 augroup pandoc_syntax
