@@ -42,7 +42,7 @@ $ make install
 Create a patch file, e.g. for your `~/.gitconfig`:
 
 ```sh
-diff -uNB /path/to/dotfiles-repo/dots/.gitconfig ~/.gitconfig > ~/.gitconfig.patch
+diff -uNB $PWD/dots/.gitconfig ~/.gitconfig > ~/.gitconfig.patch
 ```
 
 After you've updated your dotfiles with `git pull && make install` apply the patch:
