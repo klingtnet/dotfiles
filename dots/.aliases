@@ -1,6 +1,7 @@
 alias ls='ls --color=auto --group-directories-first'
 alias ll='ls -l --human-readable --almost-all'
 alias py='/usr/bin/env python'
+alias clipit='xclip -selection clipboard'
 
 [[ ! -z $( grep 'Arch Linux' /etc/issue ) ]] && source "$HOME/.arch_aliases"
 
