@@ -10,7 +10,7 @@ paths=(
     ~/.node_modules/bin
     ~/.rvm/bin
     ~/.local/bin
-    "$(ruby -e 'print Gem.user_dir')/bin"
+    $([[ $(hash ruby &>/dev/null) ]] && "$(ruby -e 'print Gem.user_dir')/bin")
 )
 for p in ${paths[@]}; do
     [[ -d "$p" ]] && PATH="$p:$PATH"
