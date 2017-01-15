@@ -1,6 +1,6 @@
 #!/bin/bash
 
-[ $(hash nvim) ] &&
+[ $(hash nvim &>/dev/null) ] &&
     echo "Creating symlinks to setup the neovim configuration ..."
     [ ! -f "$HOME/.vim/init.vim" ] &&
         ln -s $HOME/.vimrc $HOME/.vim/init.vim
