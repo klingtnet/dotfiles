@@ -1,7 +1,6 @@
 # see item #7 in http://chneukirchen.org/blog/archive/2015/02/10-fancy-zsh-tricks-you-may-not-know.html
 # for a more sophisticaed but non-portable zsh version
 paths=(
-    ~/bin
     ~/.go/bin
     ~/.cargo/bin
     ~/.multirust/toolchains/stable/cargo/bin
