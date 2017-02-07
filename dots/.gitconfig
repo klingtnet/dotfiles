@@ -28,6 +28,7 @@
 
 [diff]
     tool = meld
+    algorithm = minimal
 
 [merge]
     tool = meld
