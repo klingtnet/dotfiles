@@ -39,14 +39,11 @@ $ make install
 
 ## Customize
 
-Create a patch file, e.g. for your `~/.gitconfig`:
+You can create a patch file of your custom dotfile settings:
 
 ```sh
-diff -uNB $PWD/dots/.gitconfig ~/.gitconfig > ~/.gitconfig.patch
+$ ./patch.sh create
 ```
 
-After you've updated your dotfiles with `git pull && make install` apply the patch:
-
-```sh
-patch < ~/.gitconfig.patch
-```
+The install script will check if the patch file exists and apply them after a successful installation.
+You can also apply them manually by running: `./patch.sh apply`.
