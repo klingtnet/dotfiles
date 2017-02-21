@@ -4,7 +4,7 @@
     c       = commit
     cr      = clone --recursive
     co      = checkout
-    lgf     = log --stat --graph --abbrev-commit --decorate=full --pretty=medium
+    logx    = log --stat --graph --abbrev-commit --decorate=full --pretty=medium
     l       = log --abbrev-commit --decorate --pretty=oneline
     s       = status
     f       = fetch
