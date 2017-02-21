@@ -5,6 +5,7 @@
     cr      = clone --recursive
     co      = checkout
     logx    = log --stat --graph --abbrev-commit --decorate=full --pretty=medium
+    difflog = log --patch
     l       = log --abbrev-commit --decorate --pretty=oneline
     s       = status
     f       = fetch
