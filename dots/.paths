@@ -15,4 +15,4 @@ paths=(
 for p in ${paths[@]}; do
     [[ -d "$p" ]] && PATH="$p:$PATH"
 done
-# vim: set syntax=sh:
+# vim: set syntax=sh

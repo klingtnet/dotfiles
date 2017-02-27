@@ -45,4 +45,4 @@ export -f prompt_cmd
 
 export PROMPT_COMMAND=prompt_cmd
 
-# vim: set syntax=sh:
+# vim: set syntax=sh

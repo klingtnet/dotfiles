@@ -109,4 +109,4 @@ precmd() {
     kn_prompt $STATUS
 }
 
-# vim: set syntax=sh:
+# vim: set syntax=sh

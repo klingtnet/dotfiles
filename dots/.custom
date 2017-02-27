@@ -14,4 +14,4 @@
 
 [[ -d "$HOME/.vst" ]]\
 	&& export VST_PATH=${VST_PATH:-~/.vst}
-# vim: set syntax=sh:
+# vim: set syntax=sh
