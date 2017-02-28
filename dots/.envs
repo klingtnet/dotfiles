@@ -12,4 +12,4 @@ hash git &&
     git config --global user.name "$KN_FULLNAME" &&
     git config --global user.email "$KN_USEREMAIL"
 
-# vim: set syntax=sh
+# vim: set syntax=sh:
