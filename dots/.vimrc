@@ -27,6 +27,10 @@ filetype plugin on          " load plugin for filetype
 filetype indent off         " load filetype specific indent file
 
 """ theme
+if has("termguicolors")
+    set termguicolors
+endif
+
 """ http://vimcolors.com/
 " DARK
 " lucius, gruvbox, flatcolor, mopkai, desertEx, flatui,
@@ -35,7 +39,6 @@ filetype indent off         " load filetype specific indent file
 " LIGHT
 " github, beauty256, gravity, coda, materialbox, morning, nuvola, osx_like,
 " PaperColor, parsec, pencil, professional, proton
-set t_Co=256
 colorscheme badwolf
 syntax on                   " switch syntax highlighting on
 
