@@ -39,6 +39,8 @@ endif
 " LIGHT
 " github, beauty256, gravity, coda, materialbox, morning, nuvola, osx_like,
 " PaperColor, parsec, pencil, professional, proton
+
+set bg=dark
 colorscheme badwolf
 syntax on                   " switch syntax highlighting on
 
