@@ -47,3 +47,15 @@ $ ./patch.sh create
 
 The install script will check if the patch file exists and apply them after a successful installation.
 You can also apply them manually by running: `./patch.sh apply`.
+
+## Notes
+
+Wayland doesn't respect `.profile` files which means that `.desktop` applications do not inherit the environment variables set there.
+I wondered why Visual Studio Code could not find my `GOPATH` and created the following file as a workaround:
+
+```sh
+$ cat /usr/share/gdm/env.d/gopath.env
+# This is a fix for wayland ignoring `.profile`
+# https://bugzilla.gnome.org/show_bug.cgi?id=736660
+GOPATH=$HOME/.go
+```
