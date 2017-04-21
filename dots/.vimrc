@@ -31,6 +31,10 @@ if has("termguicolors")
     set termguicolors
 endif
 
+if &term =~ '256color'
+    set t_ut=
+endif
+
 """ http://vimcolors.com/
 " DARK
 " lucius, gruvbox, flatcolor, mopkai, desertEx, flatui,
