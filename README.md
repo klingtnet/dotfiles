@@ -5,7 +5,7 @@ This time I tried to make the prompt as minimal as possible without omitting rel
 Both prompts, bash and zsh are looking identical, except that there is no version control prompt for bash.
 I'm also using defaults wherever possible, so customization is really easy.
 
-[Try](#Try) it yourself: `make try` (requires docker)
+[Try](#try) it yourself: `make try` (requires docker)
 
 ![vim with papercolor theme](vim.png)
 ![terminal with solarized-dark theme](terminal-dark.png)
