@@ -19,6 +19,7 @@
     editor          = vim
     pager           = less
     excludesfile    = ~/.gitignore_global
+    autocrlf        = input
 
 [color]
     diff    = auto
