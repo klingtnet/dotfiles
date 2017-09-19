@@ -13,8 +13,11 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 " NerdTREE file explorer
 Plugin 'scrooloose/nerdtree'
+
+" DISABLED: See w0rp/ale
 " Syntastic syntax checker
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
+
 " ag.vim use `ag` instead of `ack`
 Plugin 'rking/ag.vim'
 " Ctrl+P vim (sublime text like fuzzy search)
@@ -35,6 +38,8 @@ Plugin 'xolox/vim-session'
 Plugin 'editorconfig/editorconfig-vim'
 " racer plugin for vim (Rust autocompletion)
 Plugin 'racer-rust/vim-racer'
+" ALE - Asynchronous Lint Engine
+Plugin 'w0rp/ale'
 
 " colorschemes
 Plugin 'flazz/vim-colorschemes'
