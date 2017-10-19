@@ -127,3 +127,9 @@ if has('nvim')
     " remap Esc to exit terminal emulator mode
     tnoremap <Esc> <C-\><C-n>
 endif
+
+if executable('rg')
+    let g:grepprg = 'rg --vimgrep --no-heading'
+endif
+nmap <Leader>b :Buffers<CR>
+nmap <Leader>f :Files<CR>

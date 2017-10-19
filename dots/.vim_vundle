@@ -20,8 +20,8 @@ Plugin 'scrooloose/nerdtree'
 
 " ag.vim use `ag` instead of `ack`
 Plugin 'rking/ag.vim'
-" Ctrl+P vim (sublime text like fuzzy search)
-Plugin 'ctrlpvim/ctrlp.vim'
+" fzf a fuzzy finder for vim (requires fzf to be installed)
+Plugin 'junegunn/fzf.vim'
 " vim.sensible a set of sane defaults
 Plugin 'tpope/vim-sensible'
 " rust.vim
