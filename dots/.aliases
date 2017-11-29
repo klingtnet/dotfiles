@@ -1,6 +1,8 @@
 dailynote() {
     local title=${1:-'notes'}
-    touch "$(date --iso-8601)-${title}.md"
+    local filename="$(date --iso-8601)-${title}.md"
+    touch "$filename"
+    echo "$filename"
 }
 
 alias ls='ls --color=auto --group-directories-first'
