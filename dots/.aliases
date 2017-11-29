@@ -1,3 +1,8 @@
+dailynote() {
+    local title=${1:-'notes'}
+    touch "$(date --iso-8601)-${title}.md"
+}
+
 alias ls='ls --color=auto --group-directories-first'
 alias ll='ls -l --human-readable --almost-all'
 alias py='/usr/bin/env python'
