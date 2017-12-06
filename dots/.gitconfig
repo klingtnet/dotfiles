@@ -38,8 +38,5 @@
 	name = Andreas Linz
 	email = klingt.net@gmail.com
 
-[push]
-    default = simple
-
 [pull]
     ff = only
