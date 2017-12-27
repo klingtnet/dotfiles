@@ -3,9 +3,6 @@
 [[ -d "$HOME/.go" ]]\
 	&& export GOPATH=${GOPATH:-~/.go}
 
-[[ ! -d $HOME/bin ]]\
-    && mkdir $HOME/bin
-
 [[ -f ~/.pyenvrc ]]\
 	&& source ~/.pyenvrc
 
