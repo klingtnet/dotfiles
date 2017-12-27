@@ -1,11 +1,6 @@
 # terminix https://github.com/gnunn1/terminix/wiki/VTE-Configuration-Issue
 [[ -f /etc/profile.d/vte.sh ]] && source /etc/profile.d/vte.sh
 
-source $HOME/.envs
-source $HOME/.aliases
-source $HOME/.paths
-[[ -f "$HOME/.$USER" ]] && source "$HOME/.$USER"
-
 SAVEHIST=$HISTSIZE
 HISTFILE=~/.zsh_history
 
@@ -108,5 +103,11 @@ precmd() {
     vcs_info
     kn_prompt $STATUS
 }
+
+# source custom files
+source $HOME/.envs
+source $HOME/.aliases
+source $HOME/.paths
+[[ -f "$HOME/.$USER" ]] && source "$HOME/.$USER"
 
 # vim: set syntax=sh:

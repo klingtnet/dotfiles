@@ -5,11 +5,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-source $HOME/.envs
-source $HOME/.aliases
-source $HOME/.paths
-[[ -f ".$USER" ]] && source "$HOME/.$USER"
-
 HISTFILESIZE=-1
 
 # uncomment to enbale vi-keybindings
@@ -44,5 +39,11 @@ prompt_cmd() {
 export -f prompt_cmd
 
 export PROMPT_COMMAND=prompt_cmd
+
+# source custom files
+source $HOME/.envs
+source $HOME/.aliases
+source $HOME/.paths
+[[ -f ".$USER" ]] && source "$HOME/.$USER"
 
 # vim: set syntax=sh:
