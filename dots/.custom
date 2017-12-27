@@ -11,4 +11,13 @@
 
 [[ -d "$HOME/.vst" ]]\
 	&& export VST_PATH=${VST_PATH:-~/.vst}
+
+if hash fzf &>/dev/null; then
+    [[ -n "$ZSH_VERSION" ]]\
+        && source /usr/share/fzf/key-bindings.zsh\
+        && source /usr/share/fzf/completion.zsh
+    [[ -n "$BASH_VERSION" ]]\
+        && source /usr/share/fzf/key-bindings.bash
+        && source /usr/share/fzf/completion.bash
+fi
 # vim: set syntax=sh:
