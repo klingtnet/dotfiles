@@ -1,6 +1,8 @@
 # terminix https://github.com/gnunn1/terminix/wiki/VTE-Configuration-Issue
 [[ -f /etc/profile.d/vte.sh ]] && source /etc/profile.d/vte.sh
 
+source $HOME/.envs
+
 SAVEHIST=$HISTSIZE
 HISTFILE=~/.zsh_history
 
@@ -105,7 +107,6 @@ precmd() {
 }
 
 # source custom files
-source $HOME/.envs
 source $HOME/.aliases
 source $HOME/.paths
 [[ -f "$HOME/.$USER" ]] && source "$HOME/.$USER"
