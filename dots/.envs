@@ -2,7 +2,7 @@
 
 export EDITOR="vim"
 export PAGER="less"
-export HISTSIZE=131072
+export HISTSIZE=1048576
 
 export KN_FULLNAME='Andreas Linz'
 export KN_USEREMAIL='klingt.net@gmail.com'
