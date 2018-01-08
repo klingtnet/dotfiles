@@ -17,7 +17,7 @@ if hash fzf &>/dev/null; then
         && source /usr/share/fzf/key-bindings.zsh\
         && source /usr/share/fzf/completion.zsh
     [[ -n "$BASH_VERSION" ]]\
-        && source /usr/share/fzf/key-bindings.bash
+        && source /usr/share/fzf/key-bindings.bash\
         && source /usr/share/fzf/completion.bash
 fi
 # vim: set syntax=sh:
