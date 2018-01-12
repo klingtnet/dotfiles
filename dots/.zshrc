@@ -1,6 +1,3 @@
-# terminix https://github.com/gnunn1/terminix/wiki/VTE-Configuration-Issue
-[[ -f /etc/profile.d/vte.sh ]] && source /etc/profile.d/vte.sh
-
 source $HOME/.envs
 
 SAVEHIST=$HISTSIZE
