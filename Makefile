@@ -17,6 +17,7 @@ install:
 	vim -u ~/.vim_vundle +PluginInstall --cmd "let g:session_autosave='no'" +qall
 	./setup_nvim.sh
 	./patch.sh apply
+	touch ~/.$(shell whoami)
 
 update:
 	git subtree pull --squash --prefix dots/.vim/bundle/Vundle.vim/ git@github.com:VundleVim/Vundle.vim.git master -m "Update vundle"
