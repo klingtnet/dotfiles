@@ -1,4 +1,4 @@
-# envrionment variables
+# environment variables
 
 export EDITOR="vim"
 export PAGER="less"
