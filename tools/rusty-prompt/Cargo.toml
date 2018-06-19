@@ -1,0 +1,9 @@
+[package]
+name = "rusty-prompt"
+version = "0.1.0"
+authors = ["Andreas Linz <klingt.net@gmail.com>"]
+
+[dependencies]
+colored = "1.6"
+hostname = "0.1.5"
+git2 = "0.7"
