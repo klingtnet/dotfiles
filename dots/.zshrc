@@ -94,13 +94,22 @@ kn_prompt() {
     PROMPT+=" %3~"
     [[ -n $vcs_info_msg_0_ ]] && PROMPT+=" ($vcs_info_msg_0_)"
     [[ -n $VIRTUAL_ENV ]] && PROMPT+=" ($(basename $VIRTUAL_ENV))"
+    PROMPT+=" [$(shell-timer)]"
     PROMPT+=": "
 }
 
+export KN_CMD_START_TIME_NS=$(date +%s%N)
+export KN_CMD_END_TIME_NS=$KN_CMD_START_TIME_NS
+
 precmd() {
+    KN_CMD_END_TIME_NS=$(date +%s%N)
     local STATUS=$?
     vcs_info
     kn_prompt $STATUS
+}
+
+preexec() {
+    KN_CMD_START_TIME_NS=$(date +%s%N)
 }
 
 # source custom files
