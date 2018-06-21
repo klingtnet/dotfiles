@@ -18,7 +18,7 @@ fn home_path() -> Option<String> {
 }
 
 fn cwd() -> Option<String> {
-    if let Some(cwd_path) = env::current_dir().ok() {
+    if let Ok(cwd_path) = env::current_dir() {
         Some(cwd_path.to_string_lossy().into_owned())
     } else {
         None
@@ -51,9 +51,8 @@ fn git_prompt() -> Option<String> {
             repo_prompt.push(shorthand.to_owned());
         }
     }
-    if let Some(description) = repo.describe(DescribeOptions::new().describe_tags())
+    if let Ok(description) = repo.describe(DescribeOptions::new().describe_tags())
         .and_then(|desc| desc.format(None))
-        .ok()
     {
         repo_prompt.push(format!("@{}", description));
     }
