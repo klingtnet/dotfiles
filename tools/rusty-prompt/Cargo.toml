@@ -7,3 +7,4 @@ authors = ["Andreas Linz <klingt.net@gmail.com>"]
 colored = "1.6"
 hostname = "0.1.5"
 git2 = "0.7"
+libc = "0.2"

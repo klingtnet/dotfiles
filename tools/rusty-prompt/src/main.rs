@@ -1,69 +1,121 @@
 extern crate colored;
 extern crate git2;
 extern crate hostname;
+extern crate libc;
 
 use colored::*;
-use git2::Repository;
+use git2::{DescribeOptions, Repository, RepositoryState};
 use hostname::get_hostname;
 use std::env;
-use std::process::Command;
+use std::ffi::CString;
 
-fn home_path() -> String {
-    env::home_dir()
-        .unwrap_or_default()
-        .to_string_lossy()
-        .into_owned()
+fn home_path() -> Option<String> {
+    if let Some(home_path) = env::home_dir() {
+        Some(home_path.to_string_lossy().into_owned())
+    } else {
+        None
+    }
 }
 
-fn cwd() -> String {
-    env::current_dir()
-        .unwrap_or_default()
-        .to_string_lossy()
-        .into_owned()
+fn cwd() -> Option<String> {
+    if let Some(cwd_path) = env::current_dir().ok() {
+        Some(cwd_path.to_string_lossy().into_owned())
+    } else {
+        None
+    }
 }
 
-fn tilde_home<S: Into<String>>(path: S) -> String {
-    path.into().replace(&home_path(), "~")
+fn tilde_home(path: String) -> String {
+    if let Some(home) = home_path() {
+        return path.replace(&home, "~");
+    }
+    path.into()
 }
 
-fn user_name() -> String {
-    env::var("USER")
-        .or(env::var("USERNAME"))
-        .unwrap_or_default()
+fn shell_level() -> Option<String> {
+    env::var("SHLVL").ok()
 }
 
-fn host_name() -> String {
-    get_hostname().unwrap_or_default()
-}
-
-fn shell_level() -> String {
-    env::var("SHLVL").unwrap_or_default()
-}
-
-fn git_branch() -> String {
-    let mut cwd = env::current_dir().unwrap();
+fn git_prompt() -> Option<String> {
+    let mut cwd = env::current_dir().ok()?;
     while let Err(_) = Repository::open(&cwd) {
         if !cwd.pop() {
-            return "".to_owned();
+            return None;
         }
     }
-    let repo = Repository::open(cwd).unwrap();
-    let head = repo.head().unwrap();
-    head.shorthand().unwrap_or_default().to_string()
+    let repo = Repository::open(cwd).ok()?;
+    let mut repo_prompt: Vec<String> = Vec::new();
+
+    if let Ok(git_ref) = repo.head() {
+        if let Some(shorthand) = git_ref.shorthand() {
+            repo_prompt.push(shorthand.to_owned());
+        }
+    }
+    if let Some(description) = repo.describe(DescribeOptions::new().describe_tags())
+        .and_then(|desc| desc.format(None))
+        .ok()
+    {
+        repo_prompt.push(format!("@{}", description));
+    }
+    if let Some(git_state) = git_repo_state(repo.state()) {
+        repo_prompt.push(format!("in {} mode", git_state.to_owned()));
+    }
+    if repo_prompt.is_empty() {
+        return None;
+    }
+    Some(repo_prompt.join(" "))
 }
 
-fn virtual_env() -> String {
-    env::var("VIRTUAL_ENV").unwrap_or_default()
+fn git_repo_state(repo_state: RepositoryState) -> Option<&'static str> {
+    match repo_state {
+        RepositoryState::Merge => Some("merge"),
+        RepositoryState::Revert | RepositoryState::RevertSequence => Some("revert"),
+        RepositoryState::CherryPick | RepositoryState::CherryPickSequence => Some("cherry-pick"),
+        RepositoryState::Bisect => Some("bisect"),
+        RepositoryState::Rebase
+        | RepositoryState::RebaseInteractive
+        | RepositoryState::RebaseMerge => Some("rebase"),
+        _ => None,
+    }
+}
+
+fn virtual_env() -> Option<String> {
+    env::var("VIRTUAL_ENV").ok()
+}
+
+fn user_name() -> ColoredString {
+    let uid = unsafe { libc::geteuid() };
+
+    let username = unsafe {
+        let passwd = libc::getpwuid(uid);
+        CString::from_raw((*passwd).pw_name)
+            .into_string()
+            .unwrap_or("unknown".to_owned())
+    };
+
+    match uid {
+        0 => username.red().bold(),
+        _ => username.green(),
+    }
 }
 
 fn main() {
-    println!(
-        "s{} {}@{} {} ({}) in {}",
-        shell_level().cyan(),
-        user_name().green(),
-        host_name().yellow(),
-        tilde_home(cwd()),
-        git_branch().blue(),
-        virtual_env().blue(),
-    );
+    let mut prompt: Vec<String> = Vec::new();
+
+    if let Some(lvl) = shell_level() {
+        prompt.push(format!("s{}", lvl.blue()));
+    };
+    prompt.push(format!(
+        "{}@{}",
+        user_name(),
+        get_hostname().unwrap_or("unknown-host".to_owned()).yellow()
+    ));
+    prompt.push(tilde_home(cwd().unwrap_or_default()));
+    if let Some(git_ref) = git_prompt() {
+        prompt.push(format!("({})", git_ref.blue()));
+    }
+    if let Some(venv_path) = virtual_env() {
+        prompt.push(format!("({})", tilde_home(venv_path).blue()));
+    }
+    println!("{}", prompt.join(" "));
 }
