@@ -71,7 +71,7 @@ export KN_CMD_END_TIME_NS=$KN_CMD_START_TIME_NS
 
 precmd() {
     KN_CMD_END_TIME_NS=$(date +%s%N)
-    PROMPT="$(rusty-prompt $?)[$(shell-timer)]: "
+    PROMPT="$(rusty-prompt $?)[$(shell-timer)]${prompt_newline}> "
 }
 
 preexec() {

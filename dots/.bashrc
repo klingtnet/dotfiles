@@ -12,7 +12,7 @@ HISTFILESIZE=-1
 
 # http://bashrcgenerator.com/
 prompt_cmd() {
-    PS1="$(rusty-prompt $?)"
+    PS1="$(rusty-prompt $?)\n> "
 }
 
 export -f prompt_cmd
