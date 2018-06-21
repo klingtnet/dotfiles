@@ -11,7 +11,7 @@ use std::ffi::CStr;
 
 fn home_path() -> Option<String> {
     if let Some(home_path) = env::home_dir() {
-        Some(home_path.to_string_lossy().into_owned())
+        Some(home_path.to_string_lossy().into())
     } else {
         None
     }
@@ -19,7 +19,7 @@ fn home_path() -> Option<String> {
 
 fn cwd() -> Option<String> {
     if let Ok(cwd_path) = env::current_dir() {
-        Some(cwd_path.to_string_lossy().into_owned())
+        Some(cwd_path.to_string_lossy().into())
     } else {
         None
     }
@@ -29,7 +29,7 @@ fn tilde_home(path: String) -> String {
     if let Some(home) = home_path() {
         return path.replace(&home, "~");
     }
-    path.into()
+    path
 }
 
 fn shell_level() -> Option<String> {
@@ -102,10 +102,11 @@ fn main() {
     if let Some(lvl) = shell_level() {
         prompt.push(format!("s{}", lvl.blue()));
     };
+
     prompt.push(format!(
         "{}@{}",
         user_name(),
-        get_hostname().unwrap_or("unknown-host".to_owned()).yellow()
+        get_hostname().unwrap_or("unknown-host".into()).yellow()
     ));
     prompt.push(tilde_home(cwd().unwrap_or_default()));
     if let Some(git_ref) = git_prompt() {
