@@ -73,29 +73,7 @@ zstyle ':vcs_info:*' unstagedstr '%3F-%f '
 zstyle ':vcs_info:*' formats "%c%u%4F%b%f"
 
 kn_prompt() {
-    PROMPT=""
-    if [ -n "$(jobs)" ]; then
-        PS1+="j%6F%j%0f "
-    fi
-    if [ $SHLVL -gt 1 ]; then
-        PROMPT+="s%6F${SHLVL}%0f "
-    fi
-    if [ $EUID -eq 0 ]; then
-        PROMPT+="%1F%n%0f"
-    else
-        PROMPT+="%2F%n%0f"
-    fi
-    PROMPT+=@
-    PROMPT+='%3F%M%0f'
-    if [ $1 -gt 0 ]; then
-        PROMPT+=" %B%1F${1}%0f%b"
-    fi
-    # \w full path
-    PROMPT+=" %3~"
-    [[ -n $vcs_info_msg_0_ ]] && PROMPT+=" ($vcs_info_msg_0_)"
-    [[ -n $VIRTUAL_ENV ]] && PROMPT+=" ($(basename $VIRTUAL_ENV))"
-    PROMPT+=" [$(shell-timer)]"
-    PROMPT+=": "
+    PROMPT="$(rusty-prompt)[$(shell-timer)]: "
 }
 
 export KN_CMD_START_TIME_NS=$(date +%s%N)
