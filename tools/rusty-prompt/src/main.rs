@@ -115,5 +115,5 @@ fn main() {
     if let Some(venv_path) = virtual_env() {
         prompt.push(format!("({})", tilde_home(venv_path).blue()));
     }
-    println!("{}", prompt.join(" "));
+    println!("{}: ", prompt.join(" "));
 }
