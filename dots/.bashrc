@@ -12,28 +12,7 @@ HISTFILESIZE=-1
 
 # http://bashrcgenerator.com/
 prompt_cmd() {
-    STATUS=$?
-    PS1=""
-    if [ -n "$(jobs)" ]; then
-        PS1+="j\\[\e[34m\]\j\[\e[0m\] "
-    fi
-    if [ $SHLVL -gt 1 ]; then
-        PS1+="s\[\e[34m\]${SHLVL}\[\e[0m\] "
-    fi
-    if [ $EUID -eq 0 ]; then
-        PS1+="\[\e[31m\]\u\[\e[0m\]"
-    else
-        PS1+="\[\e[32m\]\u\[\e[0m\]"
-    fi
-    PS1+=@
-    PS1+="\[\e[33m\]\H\[\e[0m\]"
-    if [ $STATUS -ne 0 ]; then
-        PS1+=" \[\e[1;31m\]\$?\[\e[0;0m\]"
-    fi
-    PROMPT+=" in"
-    # \w full path
-    PS1+=" \w"
-    PS1+=": "
+    PS1="$(rusty-prompt $?)\n> "
 }
 
 export -f prompt_cmd
