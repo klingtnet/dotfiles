@@ -61,29 +61,17 @@ bindkey '\[[1;3D'          backward-word
 [[ -d ~/.zsh/functions ]] && fpath=(~/.zsh/functions $fpath)
 
 ### load modules
-autoload -U compinit promptinit colors zcalc vcs_info &&\
+autoload -U compinit promptinit colors zcalc &&\
     compinit &&\
     promptinit &&\
-    colors &&\
-    vcs_info
-
-zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:*' stagedstr '%2F+%f'
-zstyle ':vcs_info:*' unstagedstr '%3F-%f '
-zstyle ':vcs_info:*' formats "%c%u%4F%b%f"
-
-kn_prompt() {
-    PROMPT="$(rusty-prompt $?)[$(shell-timer)]: "
-}
+    colors
 
 export KN_CMD_START_TIME_NS=$(date +%s%N)
 export KN_CMD_END_TIME_NS=$KN_CMD_START_TIME_NS
 
 precmd() {
     KN_CMD_END_TIME_NS=$(date +%s%N)
-    local STATUS=$?
-    vcs_info
-    kn_prompt $STATUS
+    PROMPT="$(rusty-prompt $?)[$(shell-timer)]: "
 }
 
 preexec() {
