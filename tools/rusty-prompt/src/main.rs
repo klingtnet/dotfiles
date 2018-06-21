@@ -7,7 +7,7 @@ use colored::*;
 use git2::{DescribeOptions, Repository, RepositoryState};
 use hostname::get_hostname;
 use std::env;
-use std::ffi::CString;
+use std::ffi::CStr;
 
 fn home_path() -> Option<String> {
     if let Some(home_path) = env::home_dir() {
@@ -88,9 +88,7 @@ fn user_name() -> ColoredString {
 
     let username = unsafe {
         let passwd = libc::getpwuid(uid);
-        CString::from_raw((*passwd).pw_name)
-            .into_string()
-            .unwrap_or("unknown".to_owned())
+        CStr::from_ptr((*passwd).pw_name).to_string_lossy()
     };
 
     match uid {
