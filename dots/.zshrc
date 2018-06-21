@@ -73,7 +73,7 @@ zstyle ':vcs_info:*' unstagedstr '%3F-%f '
 zstyle ':vcs_info:*' formats "%c%u%4F%b%f"
 
 kn_prompt() {
-    PROMPT="$(rusty-prompt)[$(shell-timer)]: "
+    PROMPT="$(rusty-prompt $?)[$(shell-timer)]: "
 }
 
 export KN_CMD_START_TIME_NS=$(date +%s%N)

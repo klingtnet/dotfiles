@@ -99,10 +99,17 @@ fn user_name() -> ColoredString {
 fn main() {
     let mut prompt: Vec<String> = Vec::new();
 
+    let args = env::args().collect::<Vec<_>>();
+    if let Some(return_code) = args.get(1).and_then(|s| s.parse::<i8>().ok()) {
+        match return_code {
+            0 => (),
+            _ => prompt.push(format!("{}", return_code.to_string().red())),
+        }
+    }
+
     if let Some(lvl) = shell_level() {
         prompt.push(format!("s{}", lvl.blue()));
     };
-
     prompt.push(format!(
         "{}@{}",
         user_name(),
