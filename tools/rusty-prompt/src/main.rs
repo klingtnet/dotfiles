@@ -1,6 +1,7 @@
 extern crate colored;
 extern crate git2;
 extern crate hostname;
+extern crate humantime;
 extern crate libc;
 
 use colored::*;
@@ -8,6 +9,21 @@ use git2::{DescribeOptions, Repository, RepositoryState};
 use hostname::get_hostname;
 use std::env;
 use std::ffi::CStr;
+use std::time::Duration;
+
+fn cmd_duration() -> Option<String> {
+    let start = env::var("KN_CMD_START_TIME_NS")
+        .ok()
+        .and_then(|v| v.parse::<u64>().ok())?;
+    let end = env::var("KN_CMD_END_TIME_NS")
+        .ok()
+        .and_then(|v| v.parse::<u64>().ok())?;
+    if end < start {
+        return None;
+    }
+    let dur = humantime::format_duration(Duration::from_nanos(end - start));
+    Some(format!("{}", dur))
+}
 
 fn home_path() -> Option<String> {
     if let Some(home_path) = env::home_dir() {
@@ -51,7 +67,8 @@ fn git_prompt() -> Option<String> {
             repo_prompt.push(shorthand.to_owned());
         }
     }
-    if let Ok(description) = repo.describe(DescribeOptions::new().describe_tags())
+    if let Ok(description) = repo
+        .describe(DescribeOptions::new().describe_tags())
         .and_then(|desc| desc.format(None))
     {
         repo_prompt.push(format!("@{}", description));
@@ -122,5 +139,8 @@ fn main() {
     if let Some(venv_path) = virtual_env() {
         prompt.push(format!("({})", tilde_home(venv_path).blue()));
     }
-    println!("{}: ", prompt.join(" "));
+    if let Some(dur) = cmd_duration() {
+        prompt.push(format!("{}", dur.italic()))
+    }
+    println!("{}", prompt.join(" "));
 }
