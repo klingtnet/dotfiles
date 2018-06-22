@@ -12,7 +12,9 @@ HISTFILESIZE=-1
 
 # http://bashrcgenerator.com/
 prompt_cmd() {
-    PS1="$(rusty-prompt $?)\n> "
+    local kn_status=$?
+    KN_CMD_END_TIME_NS=$(date +%s%N)
+    PS1="$(rusty-prompt $kn_status)\n> "
 }
 
 export -f prompt_cmd

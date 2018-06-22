@@ -5,6 +5,7 @@ authors = ["Andreas Linz <klingt.net@gmail.com>"]
 
 [dependencies]
 colored = "1.6"
-hostname = "0.1.5"
+hostname = "0.1"
 git2 = "0.7"
 libc = "0.2"
+humantime = "1.1"
