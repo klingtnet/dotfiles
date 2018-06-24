@@ -40,6 +40,8 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'racer-rust/vim-racer'
 " ALE - Asynchronous Lint Engine
 Plugin 'w0rp/ale'
+" Support for fish shell
+Plugin 'dag/vim-fish'
 
 " colorschemes
 Plugin 'flazz/vim-colorschemes'
