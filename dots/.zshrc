@@ -57,13 +57,9 @@ bindkey '\e[1;5D'          backward-word
 bindkey '\[[1;3C'          forward-word
 bindkey '\[[1;3D'          backward-word
 
-# append function search path so promptinit is able to find my theme
-[[ -d ~/.zsh/functions ]] && fpath=(~/.zsh/functions $fpath)
-
 ### load modules
-autoload -U compinit promptinit colors zcalc &&\
+autoload -U compinit colors zcalc &&\
     compinit &&\
-    promptinit &&\
     colors
 
 export KN_CMD_START_TIME_NS=$(date +%s%N)
