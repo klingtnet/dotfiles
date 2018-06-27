@@ -142,5 +142,5 @@ fn main() {
     if let Some(dur) = cmd_duration() {
         prompt.push(format!("{}", dur.italic()))
     }
-    println!("{}", prompt.join(" "));
+    println!("{}\n{}", prompt.join(" "), "»".to_owned().white());
 }

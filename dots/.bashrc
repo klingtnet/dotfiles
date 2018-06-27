@@ -14,7 +14,7 @@ HISTFILESIZE=-1
 prompt_cmd() {
     local kn_status=$?
     KN_CMD_END_TIME_NS=$(date +%s%N)
-    PS1="$(rusty-prompt $kn_status)\n> "
+    PS1="$(rusty-prompt $kn_status)"
 }
 
 export -f prompt_cmd
