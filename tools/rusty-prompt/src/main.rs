@@ -109,7 +109,7 @@ fn user_name() -> ColoredString {
 
     match uid {
         0 => username.red().bold(),
-        _ => username.green(),
+        _ => username.green().italic(),
     }
 }
 
@@ -140,7 +140,7 @@ fn main() {
         prompt.push(format!("({})", tilde_home(venv_path).blue()));
     }
     if let Some(dur) = cmd_duration() {
-        prompt.push(format!("{}", dur.italic()))
+        prompt.push(format!("{}", dur))
     }
     println!("{}\n{}", prompt.join(" "), "»".to_owned().white());
 }
