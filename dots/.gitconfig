@@ -41,3 +41,11 @@
 
 [pull]
     ff = only
+
+[sendemail]
+    annotate = yes
+    smtpAuth = tls
+    smtpServer = smtp.example.com
+    smtpServerPort = 587
+    smtpUser = alinz@example.com
+    smtpPass = this-is-not-my-password
