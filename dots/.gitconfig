@@ -45,6 +45,6 @@
 [sendemail]
     annotate = yes
     smtpServer = smtp.example.com
-    smtpServerPort = 465
+    smtpServerPort = 587
     smtpUser = alinz@example.com
     smtpPass = this-is-not-my-password
