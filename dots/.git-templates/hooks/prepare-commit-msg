@@ -1,0 +1,11 @@
+#!/bin/bash
+
+ORIG_MSG_FILE="$1"
+TICKET=$(git rev-parse --abbrev-ref HEAD | grep -oP 'DEV-\d+')
+
+if [ -n "$TICKET" ]; then
+    cat <<HEREDOC>>"$ORIG_MSG_FILE"
+
+Jira-Ticket: $TICKET
+HEREDOC
+fi

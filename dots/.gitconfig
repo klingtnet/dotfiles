@@ -49,3 +49,6 @@
     smtpServerPort = 587
     smtpUser = alinz@example.com
     smtpPass = this-is-not-my-password
+
+[init]
+    templatedir = ~/.git-templates
