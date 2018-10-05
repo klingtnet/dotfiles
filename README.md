@@ -37,6 +37,14 @@ $ make try
 $ make install
 ```
 
+This also install rusty-prompt which requires the following build dependencies (for Raspbian/Ubuntu):
+
+- cmake
+- libssl-dev
+- libssh2-1-dev
+
+They can be named differently depending on your Linux distribution.
+
 ## Customize
 
 You can create a patch file of your custom dotfile settings:
