@@ -3,6 +3,7 @@ extern crate git2;
 extern crate hostname;
 extern crate humantime;
 extern crate libc;
+extern crate dirs;
 
 use colored::*;
 use git2::{DescribeOptions, Repository, RepositoryState};
@@ -26,7 +27,7 @@ fn cmd_duration() -> Option<String> {
 }
 
 fn home_path() -> Option<String> {
-    if let Some(home_path) = env::home_dir() {
+    if let Some(home_path) = dirs::home_dir() {
         Some(home_path.to_string_lossy().into())
     } else {
         None
