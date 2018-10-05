@@ -126,7 +126,7 @@ fn main() {
     }
 
     if let Some(lvl) = shell_level() {
-        prompt.push(format!("s{}", lvl.blue()));
+        prompt.push(format!("s{}", lvl.white()));
     };
     prompt.push(format!(
         "{}@{}",
