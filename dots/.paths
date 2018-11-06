@@ -10,6 +10,8 @@ paths=(
     "$(ruby -e 'print Gem.user_dir')/bin"
 )
 for p in ${paths[@]}; do
-    [[ -d "$p" ]] && PATH="$p:$PATH"
+    if ! grep "$p" <(echo "$PATH")>/dev/null; then
+        [[ -d "$p" ]] && PATH="$p:$PATH"
+    fi
 done
 # vim: set syntax=sh:
