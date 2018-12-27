@@ -161,7 +161,7 @@ fn main() {
         }
     }
     if let Some(dur) = cmd_duration() {
-        prompt.push(format!("{}", dur))
+        prompt.push(dur.to_string());
     }
-    println!("{}\n{}", prompt.join(" "), "ƒ: ");
+    println!("{}\nƒ: ", prompt.join(" "));
 }
