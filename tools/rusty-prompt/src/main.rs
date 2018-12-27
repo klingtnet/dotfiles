@@ -153,11 +153,11 @@ fn main() {
         } else {
             cap.to_string().green()
         };
-        prompt.push(format!("bat: {}", colored_cap));
+        prompt.push(format!("(bat: {})", colored_cap));
     }
     if let Ok(power) = sys.on_ac_power() {
         if power {
-            prompt.push(format!("bat: {}", "AC".blue()));
+            prompt.push(format!("(bat: {})", "AC".blue()));
         }
     }
     if let Some(dur) = cmd_duration() {
