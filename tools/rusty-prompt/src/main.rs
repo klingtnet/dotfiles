@@ -146,12 +146,13 @@ fn main() {
     let sys = System::new();
     if let Ok(battery) = sys.battery_life() {
         let cap = (battery.remaining_capacity * 100.0) as u64;
+        let cap_str = cap.to_string() + "%%";
         let colored_cap = if cap < 20 {
-            cap.to_string().red()
+            cap_str.red()
         } else if cap > 20 && cap < 50 {
-            cap.to_string().yellow()
+            cap_str.yellow()
         } else {
-            cap.to_string().green()
+            cap_str.green()
         };
         prompt.push(format!("(bat: {})", colored_cap));
     }
