@@ -1,9 +1,9 @@
 extern crate colored;
+extern crate dirs;
 extern crate git2;
 extern crate hostname;
 extern crate humantime;
 extern crate libc;
-extern crate dirs;
 extern crate systemstat;
 
 use colored::*;
