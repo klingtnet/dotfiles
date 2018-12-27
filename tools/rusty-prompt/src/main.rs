@@ -4,6 +4,7 @@ extern crate hostname;
 extern crate humantime;
 extern crate libc;
 extern crate dirs;
+extern crate systemstat;
 
 use colored::*;
 use git2::{DescribeOptions, Repository, RepositoryState};
@@ -11,6 +12,7 @@ use hostname::get_hostname;
 use std::env;
 use std::ffi::CStr;
 use std::time::Duration;
+use systemstat::{Platform, System};
 
 fn cmd_duration() -> Option<String> {
     let start = env::var("KN_CMD_START_TIME_NS")
@@ -139,6 +141,24 @@ fn main() {
     }
     if let Some(venv_path) = virtual_env() {
         prompt.push(format!("({})", tilde_home(venv_path).blue()));
+    }
+
+    let sys = System::new();
+    if let Ok(battery) = sys.battery_life() {
+        let cap = (battery.remaining_capacity * 100.0) as u64;
+        let colored_cap = if cap < 20 {
+            cap.to_string().red()
+        } else if cap > 20 && cap < 50 {
+            cap.to_string().yellow()
+        } else {
+            cap.to_string().green()
+        };
+        prompt.push(format!("bat: {}", colored_cap));
+    }
+    if let Ok(power) = sys.on_ac_power() {
+        if power {
+            prompt.push(format!("bat: {}", "AC".blue()));
+        }
     }
     if let Some(dur) = cmd_duration() {
         prompt.push(format!("{}", dur))
