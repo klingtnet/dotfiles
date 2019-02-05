@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"net"
 	"net/http"
 	"os"
 	"os/user"
@@ -153,26 +152,17 @@ func batteryState(wg *sync.WaitGroup, info *Info) {
 
 func ifaces(wg *sync.WaitGroup, info *Info) {
 	defer wg.Done()
-	links, err := netlink.LinkList()
+
+	addrs, err := netlink.AddrList(nil, 0)
 	if err != nil {
 		return
 	}
 	m := map[string]string{}
-	for _, link := range links {
-		flags := link.Attrs().Flags
-		if (net.FlagUp&flags) == 0 || (net.FlagLoopback&flags) > 0 {
+	for _, addr := range addrs {
+		if addr.Label == "" || addr.Scope != int(netlink.SCOPE_LINK) && addr.Scope != int(netlink.SCOPE_UNIVERSE) {
 			continue
 		}
-		routes, err := netlink.RouteList(link, 0)
-		if err != nil {
-			continue
-		}
-		for _, route := range routes {
-			if route.Scope != netlink.SCOPE_LINK {
-				continue
-			}
-			m[link.Attrs().Name] = route.Src.String()
-		}
+		m[addr.Label] = addr.IP.String()
 	}
 
 	info.mtx.Lock()
