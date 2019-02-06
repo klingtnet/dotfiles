@@ -33,7 +33,13 @@ type Info struct {
 }
 
 const panelTemplate string = `<txt><span fgcolor='YellowGreen' font-style='italic'>{{ .Username }}</span>@<span fgcolor='Yellow'>{{ .Hostname }}</span> ⏰ {{ .Uptime }} {{ range .Batteries }}{{ . }}{{ end }} 🖧 {{ range $name, $ip := .NICs }}<span fgcolor='Turquoise'>{{ $name }}</span>[{{ $ip }}] {{ end }}🌐 {{ .PublicIP }} 📆 <span fgcolor='LightGreen'>{{ .Date }}</span></txt>`
-const tooltipTemplate string = `<tool><span fgcolor='YellowGreen' font-style='italic'>{{ .Username }}</span>@<span fgcolor='Yellow'>{{ .Hostname }}</span> ⏰ {{ .Uptime }} {{ range .Batteries }}{{ . }}{{ end }} 🖧 {{ range $name, $ip := .NICs }}<span fgcolor='Turquoise'>{{ $name }}</span>[{{ $ip }}] {{ end }}🌐 {{ .PublicIP }} 📆 <span fgcolor='LightGreen'>{{ .Date }}</span></tool>`
+const tooltipTemplate string = `<tool><span fgcolor='YellowGreen' font-style='italic'>{{ .Username }}</span>@<span fgcolor='Yellow'>{{ .Hostname }}</span>
+⏰ {{ .Uptime }}
+{{ range .Batteries }}{{ . }}{{ end }}
+🖧  {{ range $name, $ip := .NICs }}<span fgcolor='Turquoise'>{{ $name }}</span>[{{ $ip }}] {{ end }}
+🌐 {{ .PublicIP }}
+📆 <span fgcolor='LightGreen'>{{ .Date }}</span>
+</tool>`
 
 func (i *Info) panel() string {
 	buf := bytes.Buffer{}
