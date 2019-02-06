@@ -17,7 +17,7 @@ import (
 )
 
 type ipInfo struct {
-	IP string `json:"ip"`
+	IP string `json:"origin"`
 }
 
 // Info contains all data that is shown in the panel and its tooltip.
@@ -59,7 +59,7 @@ func publicIP(wg *sync.WaitGroup, info *Info) {
 	cl := http.Client{
 		Timeout: 1 * time.Second,
 	}
-	resp, err := cl.Get("https://ipinfo.io")
+	resp, err := cl.Get("https://httpbin.org/ip")
 	if err != nil {
 		info.mtx.Lock()
 		info.PublicIP = "offline"
