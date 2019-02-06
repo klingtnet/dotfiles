@@ -142,13 +142,13 @@ func batteryState(wg *sync.WaitGroup, info *Info) {
 	for _, bat := range bats {
 		switch bat.State {
 		case battery.Unknown:
-			s = append(s, fmt.Sprintf("⚡ <span fgcolor='Green'>%3.2f%%</span>", batPercent(bat)))
+			s = append(s, fmt.Sprintf("⚡ <span fgcolor='Yellow'>%3.2f%%</span>", batPercent(bat)))
 		case battery.Charging:
-			s = append(s, fmt.Sprintf("⬆️ <span fgcolor='Green'>%3.2f%%</span>", batPercent(bat)))
+			s = append(s, fmt.Sprintf("⬆️ <span fgcolor='LightGreen'>%3.2f%%</span>", batPercent(bat)))
 		case battery.Discharging:
 			s = append(s, fmt.Sprintf("⬇️ <span fgcolor='Orange'>%3.2f%%</span>", batPercent(bat)))
 		case battery.Full:
-			s = append(s, "<span fgcolor='Green'>100%</span>")
+			s = append(s, "<span fgcolor='White'>100%</span>")
 		case battery.Empty:
 			s = append(s, "<span fgcolor='Red'>0%</span>")
 		}
