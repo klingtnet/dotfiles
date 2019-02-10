@@ -1,19 +1,29 @@
-FROM alpine:edge
+FROM rust:1.32-slim
+
+WORKDIR /rusty-prompt
+COPY tools/rusty-prompt .
+RUN apt update && apt install -y libssl-dev pkg-config
+RUN cargo build --release
+
+FROM debian:stretch-slim
 
 MAINTAINER Andreas Linz <klingt.net@gmail.com>
 
+COPY --from=0 /rusty-prompt/target/release/rusty-prompt /usr/bin/rusty-prompt
+
 # enable testing repositories to install editorconfig
-RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories
-RUN apk update &&\
-    apk add bash\
+RUN apt update
+RUN apt install -y bash\
             zsh\
-            ncurses\
-            ncurses-terminfo\
+            ncurses-term\
             vim\
             git\
-            editorconfig
+            editorconfig\
+            ruby\
+            gpg\
+            libcurl4-openssl-dev
 
-RUN adduser -D -s zsh dots
+RUN adduser --gecos dots --disabled-password --shell /bin/zsh --quiet dots
 
 COPY dots /home/dots
 RUN chown -R dots:dots /home/dots

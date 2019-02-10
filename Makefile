@@ -6,6 +6,7 @@ SHELL:=$(shell which bash)
 all: build
 
 build: Dockerfile
+	make -C tools/rusty-prompt rusty-prompt
 	docker build -t ${NAME} .
 
 try: build
