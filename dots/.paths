@@ -4,6 +4,7 @@ paths=(
     ~/.go/bin
     ~/.cargo/bin
     ~/.pyenv/bin
+    ~/.poetry/bin
     ~/.node_modules/bin
     ~/.rvm/bin
     ~/.local/bin
