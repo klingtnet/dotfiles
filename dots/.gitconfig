@@ -4,6 +4,7 @@
     c       = commit
     cr      = clone --recursive
     co      = checkout
+    cap     = commit --amend --patch --no-edit
     logx    = log --stat --graph --abbrev-commit --decorate=full --pretty=medium
     difflog = log --patch
     l       = log --abbrev-commit --decorate --pretty=oneline
