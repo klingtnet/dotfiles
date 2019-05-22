@@ -12,6 +12,8 @@
 [[ -d "$HOME/.vst" ]]\
 	&& export VST_PATH=${VST_PATH:-~/.vst}
 
+[[ -f "$HOME/.local/share/klingtnet-envman/envman.shell" ]] && source "$HOME/.local/share/klingtnet-envman/envman.shell"
+
 if hash fzf &>/dev/null; then
     if [[ -n "$ZSH_VERSION" ]]; then
         source /usr/share/fzf/key-bindings.zsh
