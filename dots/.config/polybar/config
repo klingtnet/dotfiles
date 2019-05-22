@@ -2,20 +2,24 @@
 
 [bar/kn]
 ; fc-list
-font-0=IBM Plex Mono:size=11;0
-font-1=IBM Plex Mono:style=Bold:size=11;0
-font-2=Noto Color Emoji:size=12:scale=11;0
-modules-left=public-ip
-modules-center=title
-modules-right=ewmh filesystem memory cpu temperature backlight battery pulseaudio date
+font-0="IBM Plex Mono:size=11;2"
+font-1="IBM Plex Mono:style=Bold:size=11;2"
+font-2="Noto Color Emoji:size=12:scale=11;2"
+font-3="IBM Plex Mono:style=Italic:size=11;2"
+modules-left=public-ip playerctl title
+modules-center=date
+modules-right=ewmh filesystem memory cpu temperature backlight battery pulseaudio
 tray-position=right
 height=32
-module-margin-right=1
+module-margin=1
+padding=1
+tray-maxsize=24
+tray-padding=3
 
 [module/date]
 type=internal/date
 label=%date% %time%
-label-font = 1
+label-font=2
 ; https://en.cppreference.com/w/cpp/io/manip/put_time
 ; ISO-8601 %F and %T
 date=%F
@@ -34,8 +38,10 @@ format-prefix-font=2
 type=internal/battery
 battery=BAT0
 adapter=AC
-label-charging="🔌▲ %percentage%%"
-label-discharging="🔌▼ %percentage%%"
+format-charging="🔋 <label-charging>"
+label-charging="%percentage%%↑"
+format-discharging="🔋 <label-discharging>"
+label-discharging="%percentage%%↓"
 label-full="🔌 100%"
 
 [module/cpu]
@@ -52,11 +58,11 @@ mount-0=/
 mount-1=/home
 mount-2=/tmp
 spacing=1
-label-mounted=%mountpoint%: %percentage_free%%
+label-mounted=%mountpoint%: %percentage_used%%
 
 [module/pulseaudio]
 type=internal/pulseaudio
-format-volume=VOL <label-volume>
+format-volume="🎧 <label-volume>"
 
 [module/temperature]
 type=internal/temperature
@@ -69,10 +75,18 @@ enable-scroll=false
 label-active-foreground=#00ffff
 
 [module/title]
-type = internal/xwindow
+type=internal/xwindow
+label-font=4
+label-maxlen=50
 
 [module/public-ip]
 type=custom/script
 exec=curl --silent --fail https://api.ipify.org
 interval=10
 format-prefix="🌎 "
+
+[module/playerctl]
+type=custom/script
+exec=playerctl --format='{{artist}}—{{title}} [{{status}}]' metadata
+interval=5
+format-prefix="🎶 "
