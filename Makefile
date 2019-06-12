@@ -3,7 +3,7 @@
 NAME='dotfiles'
 SHELL:=$(shell which bash)
 
-all: install
+all: try
 
 build:
 	make -C tools/rusty-prompt rusty-prompt
