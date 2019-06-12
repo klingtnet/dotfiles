@@ -3,17 +3,17 @@
 NAME='dotfiles'
 SHELL:=$(shell which bash)
 
-all: build
+all: install
 
-build: Dockerfile
+build:
 	make -C tools/rusty-prompt rusty-prompt
-	docker build -t ${NAME} .
 
-try: build
+try: Dockerfile
+	docker build -t ${NAME} .
 	docker run --rm -it ${NAME}
 
 # http://www.cyberciti.biz/faq/bash-considered-harmful-to-match-dot-files-why/
-install:
+install: build
 	cp --verbose -r dots/.[^.]* ~
 	vim -u ~/.vim_vundle +PluginInstall --cmd "let g:session_autosave='no'" +qall
 	./setup_nvim.sh
