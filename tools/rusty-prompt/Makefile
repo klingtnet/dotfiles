@@ -16,3 +16,6 @@ target/release/rusty-prompt: $(RUST_SRC)
 	cargo build --release
 # remove debug information	
 	strip $@
+
+clean:
+	rm -rf ./rusty-prompt ./target/
