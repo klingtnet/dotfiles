@@ -6,7 +6,12 @@
 set -eou pipefail
 
 WORK_NOTE_PATH="$HOME/.work_notes"
-touch "$WORK_NOTE_PATH"
+
+if [[ ! -e "$WORK_NOTE_PATH" ]]; then
+    echo '<!-- vim: set ft=markdown: -->' > "$WORK_NOTE_PATH"
+else
+    touch "$WORK_NOTE_PATH"
+fi
 
 cat <<HEREDOC>>"$WORK_NOTE_PATH"
 
