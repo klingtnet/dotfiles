@@ -15,7 +15,7 @@ try: Dockerfile
 # http://www.cyberciti.biz/faq/bash-considered-harmful-to-match-dot-files-why/
 install: build
 	cp --verbose -r dots/.[^.]* ~
-	vim -u ~/.vim_vundle +PluginInstall --cmd "let g:session_autosave='no'" +qall
+	vim -u ~/.vim_vundle +PluginInstall! --cmd "let g:session_autosave='no'" +qall
 	./setup_nvim.sh
 	./patch.sh apply
 	make -C tools/rusty-prompt install
