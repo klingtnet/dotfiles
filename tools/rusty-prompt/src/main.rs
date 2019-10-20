@@ -133,7 +133,7 @@ fn main() {
     prompt.push(format!(
         "{}@{}",
         user_name(),
-        get_hostname().unwrap_or("unknown-host".into()).yellow()
+        get_hostname().unwrap_or_else(|| "unknown-host".into()).yellow()
     ));
     prompt.push(tilde_home(cwd().unwrap_or_default()));
     if let Some(git_ref) = git_prompt() {
@@ -162,7 +162,7 @@ fn main() {
         }
     }
     if let Some(dur) = cmd_duration() {
-        prompt.push(dur.to_string());
+        prompt.push(dur);
     }
     println!("{}\nƒ: ", prompt.join(" "));
 }
