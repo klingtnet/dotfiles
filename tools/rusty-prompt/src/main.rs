@@ -8,7 +8,6 @@ extern crate systemstat;
 
 use colored::*;
 use git2::{DescribeOptions, Repository, RepositoryState};
-use hostname::get_hostname;
 use std::env;
 use std::ffi::CStr;
 use std::time::Duration;
@@ -133,8 +132,9 @@ fn main() {
     prompt.push(format!(
         "{}@{}",
         user_name(),
-        get_hostname()
-            .unwrap_or_else(|| "unknown-host".into())
+        hostname::get()
+            .unwrap_or_else(|_| "unknown-host".into())
+            .to_string_lossy()
             .yellow()
     ));
     prompt.push(tilde_home(cwd().unwrap_or_default()));
