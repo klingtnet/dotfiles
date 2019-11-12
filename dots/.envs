@@ -7,6 +7,7 @@ export HISTSIZE=100000000
 export KN_FULLNAME='Andreas Linz'
 export KN_USEREMAIL='klingt.net@gmail.com'
 export KN_DEV_PATH="$HOME/code"
+export GO111MODULE='on'
 
 hash git &&
     git config --global user.name "$KN_FULLNAME" &&
