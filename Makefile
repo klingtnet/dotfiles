@@ -20,11 +20,9 @@ install: build
 	./patch.sh apply
 	make -C tools/rusty-prompt install
 	touch ~/.$(shell whoami)
-	make -C tools/xfce4-genmon-panel install
 
 update:
 	git subtree pull --squash --prefix dots/.vim/bundle/Vundle.vim/ git@github.com:VundleVim/Vundle.vim.git master -m "Update vundle"
 
 clean:
 	make -C tools/rusty-prompt clean
-	make -C tools/xfce4-genmon-panel clean
