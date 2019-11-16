@@ -68,7 +68,7 @@ export KN_CMD_END_TIME_NS=$KN_CMD_START_TIME_NS
 precmd() {
     local kn_status=$?
     KN_CMD_END_TIME_NS=$(date +%s%N)
-    PROMPT="$(CLICOLOR_FORCE=true rusty-prompt $kn_status)"
+    PROMPT="$(rusty-prompt $kn_status)"
 }
 
 preexec() {
