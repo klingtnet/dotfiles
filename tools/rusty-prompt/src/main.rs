@@ -116,6 +116,8 @@ fn user_name() -> ColoredString {
 }
 
 fn main() {
+    // always use colors and ignore enviroment
+    colored::control::set_override(true);
     let mut prompt: Vec<String> = Vec::new();
 
     let args = env::args().collect::<Vec<_>>();
