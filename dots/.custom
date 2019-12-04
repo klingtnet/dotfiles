@@ -24,4 +24,8 @@ if hash fzf &>/dev/null; then
         source /usr/share/fzf/completion.bash
     fi
 fi
+
+cdtemp() {
+    cd "$(mktemp -d)"
+}
 # vim: set syntax=sh:
