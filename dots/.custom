@@ -26,6 +26,6 @@ if hash fzf &>/dev/null; then
 fi
 
 cdtemp() {
-    cd "$(mktemp -d)"
+    $SHELL -c "cd $(mktemp -d); $SHELL"
 }
 # vim: set syntax=sh:
