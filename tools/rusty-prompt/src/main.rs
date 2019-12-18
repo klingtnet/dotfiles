@@ -150,7 +150,7 @@ fn main() {
     let sys = System::new();
     if let Ok(battery) = sys.battery_life() {
         let cap = (battery.remaining_capacity * 100.0) as u64;
-        let cap_str = cap.to_string() + "%%";
+        let cap_str = cap.to_string();
         let colored_cap = if cap < 20 {
             cap_str.red()
         } else if cap > 20 && cap < 50 {
