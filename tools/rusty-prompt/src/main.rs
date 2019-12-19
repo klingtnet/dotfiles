@@ -6,6 +6,7 @@ extern crate humantime;
 extern crate libc;
 extern crate notify_rust;
 extern crate systemstat;
+extern crate chrono;
 
 use colored::*;
 use git2::{DescribeOptions, Repository, RepositoryState};
@@ -13,19 +14,13 @@ use notify_rust::{Notification, NotificationHint, Timeout};
 use std::env;
 use std::ffi::CStr;
 use std::time::Duration;
+use chrono::{Utc, NaiveDateTime};
 use systemstat::{Platform, System};
 
 fn cmd_duration() -> Option<Duration> {
-    let start = env::var("KN_CMD_START_TIME_NS")
-        .ok()
-        .and_then(|v| v.parse::<u64>().ok())?;
-    let end = env::var("KN_CMD_END_TIME_NS")
-        .ok()
-        .and_then(|v| v.parse::<u64>().ok())?;
-    if end < start {
-        return None;
-    }
-    Some(Duration::from_nanos(end - start))
+    env::var("KN_CMD_LAST_RUN_NS").ok()
+        .and_then(|val| NaiveDateTime::parse_from_str(&val, "%s.%f").ok())
+        .and_then(|last_run| Utc::now().naive_utc().signed_duration_since(last_run).to_std().ok())
 }
 
 fn home_path() -> Option<String> {
@@ -184,7 +179,8 @@ fn main() {
                         Some(0) => ("dialog-information", "command succeeded", Timeout::Default),
                         _ => ("dialog-error", "command failed", Timeout::Never),
                     };
-                    Notification::new()
+                    // Ignore result when notifications are not available, e.g. in a TTY.
+                    let _ = Notification::new()
                         .summary(summary)
                         .body(command)
                         // https://developer.gnome.org/icon-naming-spec/
@@ -193,8 +189,8 @@ fn main() {
                         // http://www.galago-project.org/specs/notification/0.9/x211.html
                         .hint(NotificationHint::Category("presence".into()))
                         .timeout(timeout)
-                        .show()
-                        .unwrap();
+                        .finalize()
+                        .show();
                 }
             }
         }

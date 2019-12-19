@@ -10,11 +10,13 @@ HISTFILESIZE=-1
 # uncomment to enbale vi-keybindings
 #set -o vi
 
+export KN_CMD_LAST_RUN_NS
+
 # http://bashrcgenerator.com/
 prompt_cmd() {
     local kn_status=$?
-    KN_CMD_END_TIME_NS=$(date +%s%N)
     PS1="$(rusty-prompt $kn_status)"
+    KN_CMD_LAST_RUN_NS=$(date +%s.%N)
 }
 # prompt_cmd must be executed once
 # otherwise the default prompt is shown.
