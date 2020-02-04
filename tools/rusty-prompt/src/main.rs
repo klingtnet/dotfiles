@@ -4,18 +4,16 @@ extern crate git2;
 extern crate hostname;
 extern crate humantime;
 extern crate libc;
-extern crate notify_rust;
 extern crate systemstat;
 
 use colored::*;
 use git2::{DescribeOptions, Repository, RepositoryState};
-use notify_rust::{Notification, NotificationHint, Timeout};
 use std::env;
 use std::ffi::CStr;
 use std::time::Duration;
 use systemstat::{Platform, System};
 
-fn cmd_duration() -> Option<Duration> {
+fn cmd_duration() -> Option<String> {
     let start = env::var("KN_CMD_START_TIME_NS")
         .ok()
         .and_then(|v| v.parse::<u64>().ok())?;
@@ -25,7 +23,8 @@ fn cmd_duration() -> Option<Duration> {
     if end < start {
         return None;
     }
-    Some(Duration::from_nanos(end - start))
+    let dur = humantime::format_duration(Duration::from_nanos(end - start));
+    Some(format!("{}", dur))
 }
 
 fn home_path() -> Option<String> {
@@ -116,18 +115,13 @@ fn user_name() -> ColoredString {
     }
 }
 
-const COMMAND_BLACKLIST: [&str; 5] = ["fg", "git", "less", "man", "vim"];
-
 fn main() {
     // always use colors and ignore enviroment
     colored::control::set_override(true);
     let mut prompt: Vec<String> = Vec::new();
 
     let args = env::args().collect::<Vec<_>>();
-    let return_code: Option<i8> = args.get(1).and_then(|s| s.parse::<i8>().ok());
-    let last_command: Option<&String> = args.get(2);
-
-    if let Some(return_code) = return_code {
+    if let Some(return_code) = args.get(1).and_then(|s| s.parse::<i8>().ok()) {
         match return_code {
             0 => (),
             _ => prompt.push(format!("{}", return_code.to_string().red())),
@@ -172,32 +166,7 @@ fn main() {
         }
     }
     if let Some(dur) = cmd_duration() {
-        prompt.push(format!("{}", humantime::format_duration(dur)));
-
-        if dur.as_secs() > 10 {
-            if let Some(command) = last_command {
-                if !COMMAND_BLACKLIST
-                    .iter()
-                    .any(|term| command.trim_start().starts_with(term))
-                {
-                    let (icon, summary, timeout) = match return_code {
-                        Some(0) => ("dialog-information", "command succeeded", Timeout::Default),
-                        _ => ("dialog-error", "command failed", Timeout::Never),
-                    };
-                    Notification::new()
-                        .summary(summary)
-                        .body(command)
-                        // https://developer.gnome.org/icon-naming-spec/
-                        .icon(icon)
-                        .appname("rusty-prompt")
-                        // http://www.galago-project.org/specs/notification/0.9/x211.html
-                        .hint(NotificationHint::Category("presence".into()))
-                        .timeout(timeout)
-                        .show()
-                        .unwrap();
-                }
-            }
-        }
+        prompt.push(dur);
     }
     println!("{}\nƒ: ", prompt.join(" "));
 }
