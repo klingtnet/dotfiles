@@ -31,7 +31,7 @@ case $1 in
         show_diff
         ;;
     *)
-        echo "Usage: $0 [create-patch|apply [--dry-run]]"
+        echo "Usage: $0 [create|apply [--dry-run]]"
         exit 1
         ;;
 esac
