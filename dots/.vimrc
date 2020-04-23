@@ -26,11 +26,6 @@ filetype on                 " enable filetypes
 filetype plugin on          " load plugin for filetype
 filetype indent off         " load filetype specific indent file
 
-""" theme
-if has("termguicolors")
-    set termguicolors
-endif
-
 if &term =~ '256color'
     set t_ut=
 endif
