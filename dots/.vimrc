@@ -32,14 +32,11 @@ endif
 
 """ http://vimcolors.com/
 " DARK
-" lucius, gruvbox, flatcolor, mopkai, desertEx, flatui,
-" radicalgoodspeed, lxvc, 256-grayvim, bvemu, campfire, ChasingLogic, miko,
-" molokai, Monokai, sandydune
+" flatcolor, mopkai, molokai, Monokai
 " LIGHT
-" github, beauty256, gravity, coda, materialbox, morning, nuvola, osx_like,
-" PaperColor, parsec, pencil, professional, proton
+" github, beauty256, coda, PaperColor
 
-colorscheme github
+colorscheme flatcolor
 syntax on                   " switch syntax highlighting on
 
 """ indentation
