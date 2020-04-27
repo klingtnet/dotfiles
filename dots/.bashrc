@@ -1,6 +1,8 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+shopt -s histappend
+HISTCONTROL=ignoredups:erasedups
 HISTFILESIZE=-1
 
 # uncomment to enbale vi-keybindings
