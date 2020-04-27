@@ -14,13 +14,6 @@ prompt_cmd() {
     KN_CMD_END_TIME_NS=$(date +%s%N)
     PS1="$(rusty-prompt $kn_status)"
 }
-# prompt_cmd must be executed once
-# otherwise the default prompt is shown.
-# I am unsure when this regression started.
-prompt_cmd &>/dev/null
-
-export -f prompt_cmd
-
 export PROMPT_COMMAND=prompt_cmd
 
 # source custom files
