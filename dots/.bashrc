@@ -14,7 +14,7 @@ prompt_cmd() {
     KN_CMD_END_TIME_NS=$(date +%s%N)
     PS1="$(rusty-prompt $kn_status)"
 }
-export PROMPT_COMMAND=prompt_cmd
+PROMPT_COMMAND=prompt_cmd
 
 # source custom files
 source $HOME/.envs
