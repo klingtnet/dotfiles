@@ -11,7 +11,6 @@ setopt extended_history  # save commands timestamp
 # - names are case insensitive and underscores are ignored
 # - `unsetopt foo` is equivalent to `setopt nofoo`
 setopt autolist         # list tab completion candidates
-setopt automenu         # choose completion candidates
 setopt histfindnodups   # do not display duplicate history entries
 setopt histverify       # perform history expansion and reload the line in the edit buffer
 setopt aliases          # expand aliases
