@@ -5,6 +5,7 @@ shopt -s histappend
 HISTCONTROL=ignoredups:erasedups
 HISTFILESIZE=-1
 HISTSIZE=-1
+HISTTIMEFORMAT='%s'
 
 # uncomment to enbale vi-keybindings
 #set -o vi
