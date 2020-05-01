@@ -46,32 +46,6 @@ set sw=4                    " number of spaces used for every (auto)indent
 set sta                     " a <Tab> in an indent inserts `sw` spaces
 set si                      " do clever autoindenting
 
-""" statusline
-set ls=2                    " use statusline
-set stl =                   " reset stl
-set stl +=%F                " full path
-set stl +=\ %y              " filetype
-set stl +=\ %{&ff}          " fileformat
-set stl +=\ %{&fenc}        " file encoding
-set stl +=\ %m              " modified flag
-
-set stl +=·%=·\           " %= right justify
-
-set stl +=buf(%n)           " buffer number
-set stl +=\ 
-set stl +=row(%l            " current line
-set stl +=/%L)              " total lines
-set stl +=\ 
-set stl +=col(%v)           " virtual column number
-set stl +=\ 
-set stl +=%r                " readonly
-
-" change status line color in insert mode
-autocmd InsertEnter * highlight StatusLine ctermbg=red
-autocmd InsertEnter * highlight StatusLine guibg=red
-autocmd InsertLeave * highlight StatusLine ctermbg=lightblue
-autocmd InsertLeave * highlight StatusLine guibg=lightblue
-
 " set highlighting for md files (md are normally modula files)
 autocmd BufNew,BufNewFile,BufRead *.md setlocal ft=markdown
 
