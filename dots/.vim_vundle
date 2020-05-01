@@ -26,5 +26,8 @@ Plugin 'editorconfig/editorconfig-vim'
 " colorschemes
 Plugin 'flazz/vim-colorschemes'
 
+" Go support
+Plugin 'fatih/vim-go'
+
 call vundle#end()
 filetype plugin indent on
