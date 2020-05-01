@@ -64,5 +64,3 @@ endif
 if executable('rg')
     let g:grepprg = 'rg --vimgrep --no-heading'
 endif
-nmap <Leader>b :Buffers<CR>
-nmap <Leader>f :Files<CR>
