@@ -12,7 +12,6 @@ Plugin 'VundleVim/Vundle.vim'
 " vim git wrapper
 Plugin 'tpope/vim-fugitive'
 
-" DISABLED: See w0rp/ale
 " Syntastic syntax checker
 " Plugin 'scrooloose/syntastic'
 
