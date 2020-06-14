@@ -16,9 +16,4 @@ alias clipit='xclip -selection clipboard'
 alias wn='worknotes.sh'
 alias standup='awk "/$(date --date yesterday --iso-8601)/,0" ~/.work_notes'
 
-[[ ! -z $( grep 'Arch Linux' /etc/issue ) ]] && source "$HOME/.arch_aliases"
-
-hash exa &> /dev/null &&
-    alias lx='exa --group-directories-first --long --group --git'
-
 # vim: set syntax=sh:
