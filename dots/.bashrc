@@ -1,6 +1,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+shopt -s globstar
 shopt -s histappend
 HISTCONTROL=ignoredups:erasedups
 HISTFILESIZE=-1
