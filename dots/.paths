@@ -1,7 +1,7 @@
 # see item #7 in http://chneukirchen.org/blog/archive/2015/02/10-fancy-zsh-tricks-you-may-not-know.html
 # for a more sophisticaed but non-portable zsh version
 paths=(
-    ~/.go/bin
+    ~/${GOPATH:-'go'}/bin
     ~/.cargo/bin
     ~/.pyenv/bin
     ~/.poetry/bin
