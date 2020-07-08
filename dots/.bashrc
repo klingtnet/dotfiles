@@ -3,10 +3,16 @@
 
 shopt -s globstar
 shopt -s histappend
-HISTCONTROL=ignoredups:erasedups
+HISTCONTROL=ignoredups:erasedups:ignorespace
 HISTFILESIZE=-1
 HISTSIZE=-1
 HISTTIMEFORMAT='%s'
+
+export HSTR_CONFIG=hicolor       # get more colors
+# bind hstr to Ctrl-r (for Vi mode check doc)
+bind '"\C-r": "\C-a hstr -- \C-j"'
+# bind 'kill last command' to Ctrl-x k
+bind '"\C-xk": "\C-a hstr -k \C-j"'
 
 # uncomment to enbale vi-keybindings
 #set -o vi
