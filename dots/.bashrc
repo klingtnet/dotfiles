@@ -16,6 +16,7 @@ prompt_cmd() {
 	# append to history
 	# the default is to only write to the history when the shell is exited
 	history -a
+	history -n
     local kn_status=$?
     KN_CMD_END_TIME_NS=$(date +%s%N)
     PS1="$(rusty-prompt $kn_status)"
