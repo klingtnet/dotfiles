@@ -15,5 +15,6 @@ alias py='/usr/bin/env python'
 alias clipit='xclip -selection clipboard'
 alias wn='worknotes.sh'
 alias standup='awk "/$(date --date yesterday --iso-8601)/,0" ~/.work_notes'
+alias cdtemp='cd $(mktemp -d)'
 
 # vim: set syntax=sh:
