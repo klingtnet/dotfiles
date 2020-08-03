@@ -8,7 +8,7 @@ HISTFILESIZE=-1
 HISTSIZE=-1
 HISTTIMEFORMAT='%s'
 
-export HSTR_CONFIG=hicolor       # get more colors
+export HSTR_CONFIG=hicolor,raw-history-view
 # bind hstr to Ctrl-r (for Vi mode check doc)
 bind '"\C-r": "\C-a hstr -- \C-j"'
 # bind 'kill last command' to Ctrl-x k
