@@ -5,10 +5,7 @@ paths=(
     ~/.cargo/bin
     ~/.pyenv/bin
     ~/.poetry/bin
-    ~/.node_modules/bin
-    ~/.rvm/bin
     ~/.local/bin
-    "$(ruby -e 'print Gem.user_dir')/bin"
 )
 for p in ${paths[@]}; do
     if ! grep "$p" <(echo "$PATH")>/dev/null; then
