@@ -1,4 +1,4 @@
-FROM rust:1.35-slim
+FROM rust:1.46-slim
 
 WORKDIR /rusty-prompt
 COPY tools/rusty-prompt .
