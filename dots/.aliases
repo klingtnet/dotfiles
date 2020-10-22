@@ -12,8 +12,6 @@ man() {
 alias ls='ls --color=auto --group-directories-first'
 alias ll='ls -l --human-readable --almost-all'
 alias py='/usr/bin/env python'
-alias wn='worknotes.sh'
-alias standup='awk "/$(date --date yesterday --iso-8601)/,0" ~/.work_notes'
 alias cdtemp='cd $(mktemp -d)'
 alias clipit='wl-clip'
 alias pasteit='wl-paste'
