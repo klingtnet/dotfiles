@@ -13,7 +13,7 @@ alias ls='ls --color=auto --group-directories-first'
 alias ll='ls -l --human-readable --almost-all'
 alias py='/usr/bin/env python'
 alias cdtemp='cd $(mktemp -d)'
-alias clipit='wl-clip'
+alias clipit='wl-copy'
 alias pasteit='wl-paste'
 
 # vim: set syntax=sh:
