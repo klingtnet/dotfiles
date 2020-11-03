@@ -33,6 +33,6 @@ PROMPT_COMMAND=prompt_cmd
 source $HOME/.envs
 source $HOME/.aliases
 source $HOME/.paths
-[[ -f ".$USER" ]] && source "$HOME/.$USER"
+[[ -f "$HOME/.$USER" ]] && source "$HOME/.$USER"
 
 # vim: set syntax=sh:
