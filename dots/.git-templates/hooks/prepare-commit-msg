@@ -8,10 +8,11 @@ ticket_re = re.compile(r"(DEV-\d+)$")
 rev_parse = subprocess.run(
     ["git", "rev-parse", "--abbrev-ref", "HEAD"], capture_output=True, text=True
 ).stdout
-ticket = ticket_re.search(rev_parse).group()
-if not ticket:
+ticket_match = ticket_re.search(rev_parse)
+if not ticket_match:
     print("not a ticket branch")
     exit()
+ticket = ticket_match.group()
 
 msg = sys.argv[1]
 with open(msg) as f:
