@@ -1,3 +1,0 @@
-alias pacup='sudo pacman -Syu'
-alias paci='sudo pacman -S'
-alias pacs='pacman -Ss'

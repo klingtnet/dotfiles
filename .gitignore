@@ -1,2 +1,2 @@
-*.sublime-*
-*.swp
+doc/tags
+.netrwhist
