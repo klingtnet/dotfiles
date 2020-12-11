@@ -1,11 +1,25 @@
-#!/bin/bash
+#!/bin/python3
 
-ORIG_MSG_FILE="$1"
-TICKET=$(git rev-parse --abbrev-ref HEAD | grep -oP 'DEV-\d+')
+import subprocess
+import re
+import sys
 
-if [ -n "$TICKET" ]; then
-    cat <<HEREDOC>>"$ORIG_MSG_FILE"
+ticket_re = re.compile(r"(DEV-\d+)$")
+rev_parse = subprocess.run(
+    ["git", "rev-parse", "--abbrev-ref", "HEAD"], capture_output=True, text=True
+).stdout
+ticket = ticket_re.search(rev_parse).group()
+if not ticket:
+    print("not a ticket branch")
+    exit()
 
-Jira-Ticket: $TICKET
-HEREDOC
-fi
+msg = sys.argv[1]
+with open(msg) as f:
+    if f.read().find(f"Jira-Ticket: {ticket}") > 0:
+        print("ticket already contained")
+        exit()
+
+
+with open(msg, "a") as f:
+    print("appending")
+    f.write(f"\nJira-Ticket: {ticket}")
