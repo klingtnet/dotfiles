@@ -26,5 +26,8 @@ Plugin 'flazz/vim-colorschemes'
 " Go support
 Plugin 'fatih/vim-go'
 
+" Ctrl-P to quickly open files
+Plugin 'ctrlpvim/ctrlp.vim'
+
 call vundle#end()
 filetype plugin indent on
