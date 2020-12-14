@@ -10,17 +10,14 @@ rev_parse = subprocess.run(
 ).stdout
 ticket_match = ticket_re.search(rev_parse)
 if not ticket_match:
-    print("not a ticket branch")
     exit()
 ticket = ticket_match.group()
 
 msg = sys.argv[1]
 with open(msg) as f:
     if f.read().find(f"Jira-Ticket: {ticket}") > 0:
-        print("ticket already contained")
         exit()
 
 
 with open(msg, "a") as f:
-    print("appending")
     f.write(f"\nJira-Ticket: {ticket}")
