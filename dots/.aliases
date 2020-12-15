@@ -9,6 +9,12 @@ man() {
     command man "$@"
 }
 
+notfy() {
+	$@\
+	&& notify-send --icon=dialog-information 'command succeeded' "$*"\
+	|| notify-send --icon=dialog-error --urgency=critical 'command failed' "$*"
+}
+
 alias ls='ls --color=auto --group-directories-first'
 alias ll='ls -l --human-readable --almost-all'
 alias py='/usr/bin/env python'
