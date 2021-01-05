@@ -61,6 +61,3 @@ if has('nvim')
     tnoremap <Esc> <C-\><C-n>
 endif
 
-if executable('rg')
-    let g:grepprg = 'rg --vimgrep --no-heading'
-endif
