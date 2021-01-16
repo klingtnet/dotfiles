@@ -1,56 +1,56 @@
 [alias]
-    a       = add
-    c       = commit
-    cr      = clone --recursive
-    co      = checkout
-    cap     = commit --amend --patch --no-edit
-    s       = status
-    p       = push
-    tags    = tag -l
+	a       = add
+	c       = commit
+	cr      = clone --recursive
+	co      = checkout
+	cap     = commit --amend --patch --no-edit
+	s       = status
+	p       = push
+	tags    = tag -l
 # removes branches merged on remote (thx to http://blogs.atlassian.com/2014/10/advanced-git-aliases/)
-    local-prune = !sh -c 'git branch --merged ${1:-master} | grep -v ${1:-master} | xargs -r git branch -d'
+	local-prune = !sh -c 'git branch --merged ${1:-master} | grep -v ${1:-master} | xargs -r git branch -d'
 
 [core]
-    editor          = vim
-    pager           = less
-    excludesfile    = ~/.gitignore_global
-    autocrlf        = input
+	editor          = vim
+	pager           = less
+	excludesfile    = ~/.gitignore_global
+	autocrlf        = input
 
 [color]
-    diff    = auto
-    status  = auto
-    branch  = auto
-    ui      = auto
+	diff    = auto
+	status  = auto
+	branch  = auto
+	ui      = auto
 
 [diff]
-    tool = meld
-    algorithm = minimal
+	tool = meld
+	algorithm = minimal
 
 [merge]
-    ff = false
-    tool = meld
-    gpgsign = true
+	ff = false
+	tool = meld
+	gpgsign = true
 
 [commit]
-    gpgsign = true
+	gpgsign = true
 
 [tags]
-    gpgsign = true
+	gpgsign = true
 
 [user]
 	name = Andreas Linz
 	email = klingt.net@gmail.com
 
 [pull]
-    ff = only
+	ff = only
 
 [sendemail]
-    annotate = yes
-    smtpEncryption = tls
-    smtpServer = smtp.example.com
-    smtpServerPort = 587
-    smtpUser = alinz@example.com
-    smtpPass = this-is-not-my-password
+	annotate = yes
+	smtpEncryption = tls
+	smtpServer = smtp.example.com
+	smtpServerPort = 587
+	smtpUser = alinz@example.com
+	smtpPass = this-is-not-my-password
 
 [init]
 	templatedir = ~/.git-templates
