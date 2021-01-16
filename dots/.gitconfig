@@ -53,4 +53,5 @@
     smtpPass = this-is-not-my-password
 
 [init]
-    templatedir = ~/.git-templates
+	templatedir = ~/.git-templates
+	defaultBranch = master
