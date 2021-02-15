@@ -14,7 +14,6 @@ COPY --from=0 /rusty-prompt/target/release/rusty-prompt /usr/bin/rusty-prompt
 # enable testing repositories to install editorconfig
 RUN apt update
 RUN apt install -y bash\
-            zsh\
             ncurses-term\
             vim\
             git\
@@ -23,7 +22,7 @@ RUN apt install -y bash\
             gpg\
             libcurl4-openssl-dev
 
-RUN adduser --gecos dots --disabled-password --shell /bin/zsh --quiet dots
+RUN adduser --gecos dots --disabled-password --shell /bin/bash --quiet dots
 
 COPY dots /home/dots
 RUN chown -R dots:dots /home/dots
