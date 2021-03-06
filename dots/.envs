@@ -8,7 +8,6 @@ export MANPAGER="nvim -c 'set ft=man' -"
 export KN_FULLNAME='Andreas Linz'
 export KN_USEREMAIL='klingt.net@gmail.com'
 export KN_DEV_PATH="$HOME/code"
-export GO111MODULE='on'
 export GPG_TTY=$(tty)
 
 hash git &&
