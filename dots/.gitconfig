@@ -9,7 +9,6 @@
 	tags    = tag -l
 # removes branches merged on remote (thx to http://blogs.atlassian.com/2014/10/advanced-git-aliases/)
 	local-prune = !bash -c 'git branch --merged ${1:-master} | grep -v ${1:-master} | xargs -r git branch -d'
-	todo    = !bash -c 'git diff --no-prefix ${1:-master}... | grep -E "^\\+\\(\\+\\+|.*TODO\\)" | sed "s/^\\+*\\s*//"'
 
 [core]
 	editor          = vim

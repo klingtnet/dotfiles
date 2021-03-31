@@ -7,6 +7,7 @@ all: try
 
 build:
 	make -C tools/rusty-prompt rusty-prompt
+	make -C tools/git-todo git-todo
 
 try: Dockerfile
 	docker build -t ${NAME} .
@@ -19,6 +20,7 @@ install: build
 	./setup_nvim.sh
 	./patch.sh apply
 	make -C tools/rusty-prompt install
+	make -C tools/git-todo install
 	touch ~/.$(shell whoami)
 
 update:
