@@ -53,11 +53,13 @@ func run(ctx context.Context, revRange string) error {
 
 const DefaultRevisionRange = "master.."
 
+var Version = "dev"
+
 func main() {
 	// TODO: Add some documentation and a help message, preferrably by using urfave/cli.
 	app := &cli.App{
 		Name:        "git todo",
-		Version:     "dev",
+		Version:     Version,
 		Description: "shows TODO/FIXME messages that were added in the current branch",
 		ArgsUsage:   "<revision-range>",
 		CustomAppHelpTemplate: `Usage: {{ .Name }} [<revision-range>]

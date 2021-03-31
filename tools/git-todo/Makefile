@@ -1,9 +1,10 @@
 .PHONY: git-todo
+VERSION:=$(shell git describe --always --tags)
 
 all: git-todo
 
 git-todo:
-	go build -o $@ .
+	go build -o $@ -ldflags='-X main.Version=$(VERSION)' .
 
 install: git-todo
 ifeq ($$EUID, 0)
