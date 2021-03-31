@@ -6,12 +6,13 @@ import (
 	"errors"
 	"fmt"
 	"io"
-	"log"
 	"os"
 	"os/exec"
 	"regexp"
 	"strings"
 	"time"
+
+	"github.com/urfave/cli/v2"
 )
 
 func run(ctx context.Context, revRange string) error {
@@ -50,22 +51,39 @@ func run(ctx context.Context, revRange string) error {
 	}
 }
 
+const DefaultRevisionRange = "master.."
+
 func main() {
 	// TODO: Add some documentation and a help message, preferrably by using urfave/cli.
+	app := &cli.App{
+		Name:        "git todo",
+		Version:     "dev",
+		Description: "shows TODO/FIXME messages that were added in the current branch",
+		ArgsUsage:   "<revision-range>",
+		CustomAppHelpTemplate: `Usage: {{ .Name }} [<revision-range>]
 
-	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-	defer cancel()
+Examples
 
-	// TODO: reliably detect default branch, note that this is pretty much impossible using plain git.
-	revRange := "master.."
-	if len(os.Args) > 1 {
-		revRange = os.Args[1]
+	Using revision range (` + DefaultRevisionRange + `): {{ .Name }}
+	Custom range: {{ .Name }} develop..v1.2.3
+
+See 'man 7 gitrevisions' for details about the range format.
+`,
+		Action: func(c *cli.Context) error {
+			ctx, cancel := context.WithTimeout(c.Context, 10*time.Second)
+			defer cancel()
+
+			// TODO: reliably detect default branch, note that this is pretty much impossible using plain git.
+			revRange := DefaultRevisionRange
+			if c.Args().First() != "" {
+				revRange = c.Args().First()
+			}
+			err := run(ctx, revRange)
+			if err != nil {
+				return cli.Exit(err.Error(), 1)
+			}
+			return ctx.Err()
+		},
 	}
-	err := run(ctx, revRange)
-	if err != nil {
-		log.Fatal(err)
-	}
-	if ctx.Err() != nil {
-		log.Fatal(err)
-	}
+	app.Run(os.Args)
 }
