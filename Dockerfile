@@ -1,15 +1,22 @@
-FROM rust:1.46-slim
+FROM rust:1.46-slim as rust
 
 WORKDIR /rusty-prompt
 COPY tools/rusty-prompt .
 RUN apt update && apt install -y libssl-dev pkg-config
 RUN cargo build --release
 
+FROM golang:1.16 as go
+
+WORKDIR /git-todo
+COPY tools/git-todo .
+RUN make
+
 FROM debian:stretch-slim
 
 LABEL maintainer="Andreas Linz <klingt.net@gmail.com>"
 
-COPY --from=0 /rusty-prompt/target/release/rusty-prompt /usr/bin/rusty-prompt
+COPY --from=rust /rusty-prompt/target/release/rusty-prompt /usr/bin/rusty-prompt
+COPY --from=go /git-todo/git-todo /usr/bin/git-todo
 
 # enable testing repositories to install editorconfig
 RUN apt update
