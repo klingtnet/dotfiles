@@ -51,6 +51,8 @@ func run(ctx context.Context, revRange string) error {
 }
 
 func main() {
+	// TODO: Add some documentation and a help message, preferrably by using urfave/cli.
+
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 
