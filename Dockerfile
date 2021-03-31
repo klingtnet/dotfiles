@@ -7,7 +7,7 @@ RUN cargo build --release
 
 FROM debian:stretch-slim
 
-MAINTAINER Andreas Linz <klingt.net@gmail.com>
+LABEL maintainer="Andreas Linz <klingt.net@gmail.com>"
 
 COPY --from=0 /rusty-prompt/target/release/rusty-prompt /usr/bin/rusty-prompt
 
