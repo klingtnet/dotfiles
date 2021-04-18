@@ -56,7 +56,7 @@ fn shell_level() -> Option<String> {
 
 fn git_prompt() -> Option<String> {
     let mut cwd = env::current_dir().ok()?;
-    while let Err(_) = Repository::open(&cwd) {
+    while Repository::open(&cwd).is_err() {
         if !cwd.pop() {
             return None;
         }
