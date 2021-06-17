@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Microsoft Teams
+Exec=chromium --app=https://teams.microsoft.com
+Icon=chat-message-new-symbolic.svg
+Terminal=false
