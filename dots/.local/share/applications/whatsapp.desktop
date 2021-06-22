@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=WhatsApp
+Exec=chromium --app=https://web.whatsapp.com
+Icon=whatsapp.svg
+Terminal=false
