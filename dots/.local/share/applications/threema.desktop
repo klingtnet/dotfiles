@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Threema
+Exec=chromium --app=https://web.threema.ch/#!/welcome
+Icon=threema-app-icon_neutral.svg
+Terminal=false
