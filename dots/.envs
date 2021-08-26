@@ -3,7 +3,6 @@
 export EDITOR="vim"
 export PAGER="less"
 export HISTSIZE=100000000
-export MANPAGER="nvim -c 'set ft=man' -"
 
 export KN_FULLNAME='Andreas Linz'
 export KN_USEREMAIL='klingt.net@gmail.com'

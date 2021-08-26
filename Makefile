@@ -17,7 +17,6 @@ try: Dockerfile
 install: build
 	cp --verbose -r dots/.[^.]* ~
 	vim -u ~/.vim_vundle +PluginInstall! --cmd "let g:session_autosave='no'" +qall
-	./setup_nvim.sh
 	./patch.sh apply
 	make -C tools/rusty-prompt install
 	make -C tools/git-todo install

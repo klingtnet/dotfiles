@@ -55,9 +55,3 @@ if has('gui_running')
     " disable annoying cursor blinking
     set guicursor+=a:blinkon0
 endif
-
-if has('nvim')
-    " remap Esc to exit terminal emulator mode
-    tnoremap <Esc> <C-\><C-n>
-endif
-
