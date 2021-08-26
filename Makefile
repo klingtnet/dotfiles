@@ -7,7 +7,6 @@ all: try
 
 build:
 	make -C tools/rusty-prompt rusty-prompt
-	make -C tools/git-todo git-todo
 
 try: Dockerfile
 	docker build -t ${NAME} .
@@ -19,7 +18,6 @@ install: build
 	vim -u ~/.vim_vundle +PluginInstall! --cmd "let g:session_autosave='no'" +qall
 	./patch.sh apply
 	make -C tools/rusty-prompt install
-	make -C tools/git-todo install
 	touch ~/.$(shell whoami)
 
 update:
