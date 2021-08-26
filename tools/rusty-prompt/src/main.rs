@@ -11,20 +11,6 @@ use std::env;
 use std::ffi::CStr;
 use std::time::Duration;
 
-fn cmd_duration() -> Option<String> {
-    let start = env::var("KN_CMD_START_TIME_NS")
-        .ok()
-        .and_then(|v| v.parse::<u64>().ok())?;
-    let end = env::var("KN_CMD_END_TIME_NS")
-        .ok()
-        .and_then(|v| v.parse::<u64>().ok())?;
-    if end < start {
-        return None;
-    }
-    let dur = humantime::format_duration(Duration::from_nanos(end - start));
-    Some(format!("{}", dur))
-}
-
 fn home_path() -> Option<String> {
     if let Some(home_path) = dirs::home_dir() {
         Some(home_path.to_string_lossy().into())
@@ -145,8 +131,5 @@ fn main() {
         prompt.push(format!("({})", tilde_home(venv_path).blue()));
     }
 
-    if let Some(dur) = cmd_duration() {
-        prompt.push(dur);
-    }
     println!("{}\n$ ", prompt.join(" "));
 }
