@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -eu
+
+DIRS=(
+	bin
+	scripts
+	code
+	work/code
+	work/documents
+)
+
+for dir in ${DIRS[@]}; do
+	echo mkdir -vp ~/$dir
+done
