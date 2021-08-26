@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
+# This script creates a default directory structure below $HOME.
+
 set -eu
 
-DIRS=(
+dirs=(
 	bin
 	scripts
 	code
@@ -10,6 +12,6 @@ DIRS=(
 	work/documents
 )
 
-for dir in ${DIRS[@]}; do
-	echo mkdir -vp ~/$dir
+for dir in ${dirs[@]}; do
+	mkdir -vp ~/$dir
 done
