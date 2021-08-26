@@ -1,11 +1,11 @@
-FROM rust:1.51-slim as rust
+FROM rust:1.54-slim as rust
 
 WORKDIR /rusty-prompt
 COPY tools/rusty-prompt .
 RUN apt update && apt install -y libssl-dev pkg-config
 RUN cargo build --release
 
-FROM debian:stretch-slim
+FROM debian:bullseye-slim
 
 LABEL maintainer="Andreas Linz <klingt.net@gmail.com>"
 
