@@ -37,21 +37,8 @@
 [tags]
 	gpgsign = true
 
-[user]
-	name = Andreas Linz
-	email = klingt.net@gmail.com
+[includeIf "gitdir:~/work/code/"]
+	path = ~/work/code/git.inc
 
-[pull]
-	ff = only
-
-[sendemail]
-	annotate = yes
-	smtpEncryption = tls
-	smtpServer = smtp.example.com
-	smtpServerPort = 587
-	smtpUser = alinz@example.com
-	smtpPass = this-is-not-my-password
-
-[init]
-	templatedir = ~/.git-templates
-	defaultBranch = master
+[includeIf "gitdir:~/code/"]
+	path = ~/code/git.inc
