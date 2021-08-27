@@ -37,6 +37,12 @@
 [tags]
 	gpgsign = true
 
+[pull]
+	ff = only
+
+[init]
+	defaultBranch = master
+
 [url "git@github.com:"]
 		insteadOf = gh:
 
