@@ -37,6 +37,9 @@
 [tags]
 	gpgsign = true
 
+[url "git@github.com:"]
+		insteadOf = gh:
+
 [includeIf "gitdir:~/work/code/"]
 	path = ~/work/code/git.inc
 
